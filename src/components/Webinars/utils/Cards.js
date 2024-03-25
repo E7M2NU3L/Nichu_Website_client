@@ -6,7 +6,7 @@ import {
   Button,
 } from "@material-tailwind/react";
  
-export function HorizontalCard() {
+export function HorizontalCard2() {
   return (
     <Card className="w-full max-w-[48rem] flex-row">
       <CardHeader

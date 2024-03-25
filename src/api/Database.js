@@ -1,7 +1,7 @@
 import { Client } from "appwrite";
 import { configURL } from "../config/configURL";
 
-class DBService{
+export class DBService{
     client = new Client().setEndpoint(configURL.appwrite_connection_url).setProject(
         configURL.appwrite_connection_id
     )
@@ -12,15 +12,90 @@ class DBService{
     }
 
     // functionality
-    async UploadImage(){
+    async GetUser(){
 
     }
 
-    async UploadCourseVideo(){
+    async GetUsers(){
 
     }
 
-    async UploadUserImage(){
-        
+    async CreateUser(){
+
+    }
+
+    async UpdateUser(){
+
+    }
+
+    async DeleteUser(){
+
+    }
+
+    async GetWebinars(){
+
+    }
+
+    async GetWebinar(){
+
+    }
+
+    async CreateWebinar(){
+
+    }
+
+    async UpdateWebinar(){
+
+    }
+
+    async DeleteWebinar(){
+
+    }
+
+    async RegisterWebinar(){
+
+    }
+
+    async CreateInstructor(){
+
+    }
+
+    async DeleteInstructor(){
+
+    }
+
+    async GetInstructors(){
+
+    }
+
+    async GetInstructor(){
+
+    }
+
+    async UpdateInstructor(){
+
+    }
+
+    async VerifyInstructor(){
+
+    }
+
+    async CreateCourse(){
+
+    }
+
+    async DeleteCourses(){
+
+    }
+
+    async UpdateCourse(){
+
+    }
+
+    async GetCourses(){
+
     }
 }
+
+const db_Service = new DBService();
+export default db_Service;

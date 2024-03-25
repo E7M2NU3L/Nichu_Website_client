@@ -1,49 +1,91 @@
-import React, { useState } from 'react'
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+  Button,
+} from "@material-tailwind/react";
+import { Facebook, GitHub, Google } from "@mui/icons-material";
 import './main.css';
-import { Facebook, GitHub, Google } from '@mui/icons-material';
-
-const Login = () => {
-  // states
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: ''
-  });
-
-  const handleNameChange = (e) => setForm.name(e.target.value);
-  const handleEmailChange = (e) => setForm.email(e.target.value);
-  const passwordChange = (e) => setForm.password(e.target.value);
-
-  const handleSubmitForm = (e) => {
-    e.preventDefaults();
-
-    // further login functionality
-  }
-
+import React from "react";
+import { Link } from "react-router-dom";
+ 
+const Login =() => {
   return (
-    <div className='min-h-screen flex justify-center items-center'>
-      <main className='bg-slate-400 px-4 py-2'>
-        <h1 className='mb-6 font-["Poppins", sans-serif] font-bold'>
-          Login
-        </h1>
-
-        <div className='icons flex py-4 gap-3 items-center justify-between'>
-          <Google />
-          <Facebook />
-          <GitHub />
+    <main className="flex justify-center items-center w-full"  style={{
+      minHeight: "90vh", height: "100%", paddingTop: "3rem", paddingBottom: "3rem"
+    }}>
+    <div className="background">
+    <Card className="w-96 card-style" style={{
+        
+      }}>
+      <CardHeader
+        variant="gradient"
+        style={{
+          backgroundColor: "#1181D8"
+        }}
+        className="mb-4 grid h-28 place-items-center"
+      >
+        <Typography variant="h3" color="white">
+          Sign In
+        </Typography>
+      </CardHeader>
+      <CardBody className="flex flex-col gap-4">
+        <div className="flex flex-col sm:flex-row w-full h-full py-2 px-2 justify-around items-center gap-x-4 gap-y-3">
+          <div className="border bg-transparent flex justify-center items-center py-1 border-blue-gray-200 hover:bg-blue-300 shadow-md rounded-md hover:text-white" style={{
+            width: "100%"
+          }}>
+            <Google className=""/>
+          </div>
+          <div className="border bg-transparent flex justify-center items-center py-1 border-blue-gray-200 hover:bg-blue-300 shadow-md rounded-md hover:text-white" style={{
+            width: "100%"
+          }}>
+            <Facebook className=""/>
+          </div>
+          <div className="border bg-transparent flex justify-center items-center py-1 border-blue-gray-200 hover:bg-blue-300 shadow-md rounded-md hover:text-white" style={{
+            width: "100%"
+          }}>
+            <GitHub className=""/>
+          </div>
         </div>
-        <form className='flex flex-col justify-around gap-y-3' onSubmit={handleSubmitForm}>
-          <input type='name' className='outline-none bg-transaparent text-gray-800' placeholder='Your name' value={form.name} onChange={handleNameChange} />
-          <input type='email' className='outline-none bg-transaparent text-gray-800' placeholder='Your Email' value={form.email} onChange={handleEmailChange} />
-          <input type="password" className='outline-none bg-transaparent text-gray-800' placeholder='password' value={form.password} onChange={passwordChange} />
-
-          <button type='submit' className='btn bg-cyan-500 text-[#fefedf]'>
-            Login
-          </button>
-        </form>
-      </main>
+        <Input label="Email" size="lg" className="pb-0" />
+        <Input label="Password" size="lg" />
+        <div className="-ml-2.5">
+          <Checkbox label="Remember Me" style={{
+            color: "#1181D8"
+          }} />
+        </div>
+      </CardBody>
+      <CardFooter className="pt-0">
+        <Button fullWidth style={{
+          backgroundColor: "#1181D8"
+        }}>
+          Sign In
+        </Button>
+        <Typography variant="small" className="mt-6 flex justify-center">
+          Don&apos;t have an account?
+          <Typography
+            as="a"
+            href="#signup"
+            variant="small"
+            style={{
+              color: "#1181D8"
+            }}
+            className="ml-1 font-bold"
+          >
+            <Link to="/signup">
+              Sign up
+            </Link>
+          </Typography>
+        </Typography>
+      </CardFooter>
+    </Card>
     </div>
-  )
+    </main>
+  );
 }
 
-export default Login
+export default Login;
