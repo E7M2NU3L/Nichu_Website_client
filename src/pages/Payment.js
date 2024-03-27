@@ -4,16 +4,12 @@ import {
     Card,
     Input,
     Checkbox,
-    Button,
     Typography,
     Select,
     Option,
-    CardFooter
   } from "@material-tailwind/react";
-  import { Functions, PhoneAndroid } from "@mui/icons-material";
+  import { PhoneAndroid } from "@mui/icons-material";
   import { SiGooglepay, SiPhonepe, SiPaytm } from "react-icons/si";
-  import { Stepper, Step} from "@material-tailwind/react";
-  import { HomeIcon, CogIcon, UserIcon } from "@heroicons/react/24/outline";
 import { Link } from 'react-router-dom';
 
 const ProfessionStates = [
@@ -32,14 +28,6 @@ const ProfessionStates = [
 ]
 
 const Webinarpayment = () => {
-    // stepper state management
-    const [activeStep, setActiveStep] = React.useState(0);
-    const [isLastStep, setIsLastStep] = React.useState(false);
-    const [isFirstStep, setIsFirstStep] = React.useState(false);
-    
-    const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
-    const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
-
   return (
     <div className='flex justify-center items-center w-full' style={{
         minHeight: "90vh", height: "100%", paddingTop: "4rem", paddingBottom: "4rem", backgroundColor: "#D9D9D9"
@@ -120,37 +108,6 @@ const Webinarpayment = () => {
                 }
                 containerProps={{ className: "-ml-2.5" }}
             />
-            <CardFooter className="pt-0">
-            <div className="w-full py-4 px-8">
-                <Stepper
-                    activeStep={activeStep}
-                    isLastStep={(value) => setIsLastStep(value)}
-                    isFirstStep={(value) => setIsFirstStep(value)}
-                >
-                    <Step onClick={() => setActiveStep(0)}>
-                    <HomeIcon className="h-5 w-5" />
-                    </Step>
-                    <Step onClick={() => setActiveStep(1)}>
-                    <UserIcon className="h-5 w-5" />
-                    </Step>
-                    <Step onClick={() => setActiveStep(2)}>
-                    <CogIcon className="h-5 w-5" />
-                    </Step>
-                </Stepper>
-                <div className="mt-16 flex justify-between">
-                    <Button onClick={handlePrev} style={{
-                        backgroundColor: "#1181D8"
-                    }} disabled={isFirstStep}>
-                    Prev
-                    </Button>
-                    <Button style={{
-                        backgroundColor: "#1181D8"
-                    }} onClick={handleNext} disabled={isLastStep}>
-                    Next
-                    </Button>
-                    </div>
-                </div>
-            </CardFooter>
             </form>
         </Card>
     </div>

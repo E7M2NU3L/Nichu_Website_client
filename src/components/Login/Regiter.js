@@ -45,7 +45,7 @@ const Regiter = () => {
   }
 
   return (
-    <main className="flex justify-center items-center w-full"  style={{
+    <main className="flex justify-center items-center bg-gradient-to-tr from-[#98e8ff] via-[#b7d7e1] to-[#c0e0eb] w-full"  style={{
       minHeight: "90vh", height: "100%", paddingTop: "3rem", paddingBottom: "3rem"
     }}>
     <div className="background">

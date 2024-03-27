@@ -76,7 +76,7 @@ const Login =() => {
             }}
             className="ml-1 font-bold"
           >
-            <Link to="/signup">
+            <Link to="/register">
               Sign up
             </Link>
           </Typography>

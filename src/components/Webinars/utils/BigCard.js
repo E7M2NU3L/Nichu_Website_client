@@ -8,12 +8,13 @@ import {
     ListItem,
   } from "@material-tailwind/react";
   import Cyber from '../../../assets/images/CyberSecurity.png'
-import { CalendarMonth, CreditCard, Google, VideoCall } from "@mui/icons-material";
+import { CalendarMonth, CreditCard,VideoCall } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import './utils.css'
    
   export function HorizontalCard() {
     return (
-      <Card className="w-full max-w-[48rem] flex-row">
+      <Card className="w-full max-w-[48rem] flex-col sm:flex-row">
         <CardHeader
           shadow={false}
           floated={false}
@@ -22,7 +23,7 @@ import { Link } from "react-router-dom";
           <img
             src={Cyber}
             alt="card-image"
-            className="h-full w-full object-cover"
+            className="h-full w-full card-image"
           />
         </CardHeader>
         <CardBody>

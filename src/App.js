@@ -4,10 +4,8 @@ import Login from "./components/Login/Login";
 import { MegaMenuDefault } from "./utils/Navbar/Navbar";
 import { Footer } from "./utils/Footer/Footer";
 import Webinars from "./components/Webinars/Webinars";
-import Regiter from "./components/Login/Regiter";
-import Personal from "./components/Login/Personal";
-import WebinarRegister from "./components/WebinarRegister/WebinarRegister";
-import Webinarpayment from "./pages/Payment";
+import WebinarForm from "./components/WebinarRegister/webinarForm";
+import MainReg from "./components/Login/utils/MainReg";
 
 function App() {
   return (
@@ -18,10 +16,8 @@ function App() {
           <Route path = "/" element = {<Home />} />
           <Route path = "/login" element = {<Login />} />
           <Route path = "/webinars" element = {<Webinars />} />
-          <Route path="/register" element={<Regiter />} />
-          <Route path="/signup" element={<Personal />} />
-          <Route path="/webinar/register" element={<WebinarRegister />} />
-          <Route path="/webinar/register/payment" element={<Webinarpayment />} />
+          <Route path="/register" element={<MainReg />} />
+          <Route path="/webinar/register" element={<WebinarForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>
