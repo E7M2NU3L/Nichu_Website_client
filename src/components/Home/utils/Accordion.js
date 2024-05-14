@@ -20,7 +20,7 @@ function Icon({ id, open }) {
   );
 }
  
-export function Accordion() {
+const AccordionVision = () => {
   const [open, setOpen] = React.useState(0);
  
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
@@ -28,31 +28,77 @@ export function Accordion() {
   return (
     <>
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(1)}>What is Material Tailwind?</AccordionHeader>
+        <AccordionHeader onClick={() => handleOpen(1)}>Mission and Vision</AccordionHeader>
         <AccordionBody>
-          We&apos;re not always in the position that we want to be at. We&apos;re constantly
-          growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-          ourselves and actualize our dreams.
+        Discover our commitment to solving real-world problems and creating positive change through innovative products and services. Learn more about our forward-thinking approach to technology and our passion for improving lives.
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(2)}>
-          How to use Material Tailwind?
+        Technological Innovation
         </AccordionHeader>
         <AccordionBody>
-          We&apos;re not always in the position that we want to be at. We&apos;re constantly
-          growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-          ourselves and actualize our dreams.
+        Explore how Nipixtech stays ahead of the curve with cutting-edge technology. Learn about our latest advancements and how we're transforming industries to shape the future.
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(3)}>
-          What can I do with Material Tailwind?
+        Positive Impact
         </AccordionHeader>
         <AccordionBody>
-          We&apos;re not always in the position that we want to be at. We&apos;re constantly
-          growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-          ourselves and actualize our dreams.
+        Learn how Nipixtech's dedication to creating positive change extends beyond technology. Explore the ways we're making a difference in communities and improving lives globally.
+        </AccordionBody>
+      </Accordion>
+    </>
+  );
+}
+
+export default AccordionVision;
+ 
+export function AccordionVisionStyled() {
+  const [open, setOpen] = React.useState(1);
+ 
+  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+ 
+  return (
+    <>
+      <Accordion open={open === 1} className="mb-2 rounded-lg border border-blue-gray-100 px-4" id="scope">
+        <AccordionHeader
+          onClick={() => handleOpen(1)}
+          className={`border-b-0 transition-colors ${
+            open === 1 ? "text-blue-500 hover:!text-blue-700" : ""
+          }`}
+        >
+          Mission and Vision
+        </AccordionHeader>
+        <AccordionBody className="pt-0 text-base font-normal">
+        Discover our commitment to solving real-world problems and creating positive change through innovative products and services. Learn more about our forward-thinking approach to technology and our passion for improving lives.
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 2} className="mb-2 rounded-lg border border-blue-gray-100 px-4">
+        <AccordionHeader
+          onClick={() => handleOpen(2)}
+          className={`border-b-0 transition-colors ${
+            open === 2 ? "text-blue-500 hover:!text-blue-700" : ""
+          }`}
+        >
+          Technological Innovation
+        </AccordionHeader>
+        <AccordionBody className="pt-0 text-base font-normal">
+        Explore how Nipixtech stays ahead of the curve with cutting-edge technology. Learn about our latest advancements and how we're transforming industries to shape the future.
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 3} className="rounded-lg border border-blue-gray-100 px-4">
+        <AccordionHeader
+          onClick={() => handleOpen(3)}
+          className={`border-b-0 transition-colors ${
+            open === 3 ? "text-blue-500 hover:!text-blue-700" : ""
+          }`}
+        >
+          Positive Impact
+        </AccordionHeader>
+        <AccordionBody className="pt-0 text-base font-normal">
+        Learn how Nipixtech's dedication to creating positive change extends beyond technology. Explore the ways we're making a difference in communities and improving lives globally.
         </AccordionBody>
       </Accordion>
     </>

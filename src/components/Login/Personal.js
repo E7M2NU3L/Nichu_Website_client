@@ -2,20 +2,16 @@ import {
     Card,
     CardHeader,
     CardBody,
-    CardFooter,
     Typography,
     Input,
-    Checkbox,
     Button,
     Select,
     Option
   } from "@material-tailwind/react";
   import { BuildOutlined, ChildCare,Functions, Person } from "@mui/icons-material";
   import './main.css';
-  import React from "react";
-
-import { Stepper, Step} from "@material-tailwind/react";
-import { HomeIcon, CogIcon, UserIcon } from "@heroicons/react/24/outline";
+  import React, {useState} from "react";
+import db_Service from "../../api/Database";
 
 const ProfessionStates = [
     {
@@ -37,6 +33,32 @@ const ProfessionStates = [
 ]
 
 const Personal = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [profession, setProfession] = useState("Student");
+  const [description, setDescription] = useState("");
+  const [highestQualification, setHighestQualification] = useState("");
+
+  const handleFormSubmit = (e) => {
+    // Handle form submission here
+    console.log("Form submitted with data:", {
+      firstName,
+      lastName,
+      profession,
+      description,
+      highestQualification
+    });
+
+    e.preventDefault();
+    db_Service.CreateUser([
+      firstName,
+      lastName,
+      profession,
+      description,
+      highestQualification
+    ])
+  };
+
     return (
     <main className="flex justify-center items-center w-full bg-gradient-to-tr from-[#98e8ff] via-[#b7d7e1] to-[#c0e0eb] "  style={{
         minHeight: "90vh", height: "100%", paddingTop: "3rem", paddingBottom: "3rem"
@@ -57,8 +79,9 @@ const Personal = () => {
           </Typography>
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
-        <Input label="First Name" size="lg" />
-          <Input label="Last Name" size="lg" className="pb-0" />
+          <form onSubmit={handleFormSubmit}>
+        <Input label="First Name" size="lg" value={firstName} onChange={setFirstName} />
+          <Input label="Last Name" size="lg" className="pb-0" value={lastName} onChange={setLastName} />
           <Typography  variant="small"
                     color="blue-gray"
                     className="mb-2 font-medium">
@@ -69,6 +92,8 @@ const Personal = () => {
                         labelProps={{
                         className: "before:content-none after:content-none",
                         }}
+                        value={profession}
+                        onChange={setProfession}
                         menuProps={{ className: "h-48" }}
                     >
                         {ProfessionStates.map((content) => (
@@ -81,8 +106,11 @@ const Personal = () => {
                         ))}
             </Select>
           </Typography>
-          <Input label="Description" size="lg" />
-          <Input label="highest Qualification" />
+          <Input label="Description" size="lg" value={description} onChange={setDescription} />
+          <Input label="highest Qualification" value={highestQualification} onChange={setHighestQualification} />
+
+          <hr />
+          </form>
         </CardBody>
       </Card>
       </div>

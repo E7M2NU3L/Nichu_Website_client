@@ -9,5 +9,5 @@ export const  configURL = {
     appwrite_bucket_users_id: process.env.APPWRITE_BUCKET_USERS_ID,
     appwrite_bucket_courses_id: 
     process.env.APPWRITE_BUCKET_COURSES_ID,
-    appwrite_bucket_webinar_id: process.env.APPWRITE_BUCKET_WEBINARS_ID
+    appwrite_bucket_webinar_id: process.env.APPWRITE_BUCKET_WEBINARS_ID 
 }

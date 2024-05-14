@@ -6,6 +6,9 @@ import { Footer } from "./utils/Footer/Footer";
 import Webinars from "./components/Webinars/Webinars";
 import WebinarForm from "./components/WebinarRegister/webinarForm";
 import MainReg from "./components/Login/utils/MainReg";
+import Profile from "./pages/Profile";
+import Courses from "./components/Courses/Courses";
+import CourseForm from "./components/CourseForm/CourseForm";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path = "/webinars" element = {<Webinars />} />
           <Route path="/register" element={<MainReg />} />
           <Route path="/webinar/register" element={<WebinarForm />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/register" element={<CourseForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>

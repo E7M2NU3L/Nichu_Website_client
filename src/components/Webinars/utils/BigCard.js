@@ -14,16 +14,22 @@ import './utils.css'
    
   export function HorizontalCard() {
     return (
-      <Card className="w-full max-w-[48rem] flex-col sm:flex-row">
+      <Card className="w-full flex-col sm:flex-row" style={{
+        border: "1px solid transparent",
+        borderTopLeftRadius: "3rem",
+        borderTopRightRadius: "3rem",
+        borderBottomLeftRadius:"3rem",
+        borderBottomRightRadius: "3rem",
+      }}>
         <CardHeader
           shadow={false}
           floated={false}
-          className="m-0 w-2/5 shrink-0 rounded-r-none"
+          className="m-0 shrink-0 rounded-r-none"
         >
           <img
             src={Cyber}
-            alt="card-image"
-            className="h-full w-full card-image"
+            alt="webinar-thumbnail"
+            className="h-full w-full card-image rounded-none object-cover"
           />
         </CardHeader>
         <CardBody>
@@ -49,7 +55,7 @@ import './utils.css'
               </ListItem>
             </List>
           </Typography>
-          <div className="flex justify-around flex-col sm:flex-row gap-y-2 w-full" style={{
+          <div className="flex justify-around flex-col sm:flex-row gap-y-2 w-full mx-auto " style={{
             width: "22rem"
           }}>
             <div className="border border-blue-400 flex justify-center items-center py-1">
@@ -59,7 +65,7 @@ import './utils.css'
                 Online
               </Typography>
             </div>
-          <div className="flex justify-around items-center gap-2">
+          <div className="flex justify-between items-center gap-2">
             <Typography variant="small">
               Rs. 99/-
             </Typography>

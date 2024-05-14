@@ -1,4 +1,4 @@
-import { Client } from "appwrite";
+import { Client, Databases, ID } from "appwrite";
 import { configURL } from "../config/configURL";
 
 export class DBService{
@@ -8,9 +8,9 @@ export class DBService{
     account;
 
     constructor(){
-        this.account = new Account(this.client);
+        this.databases = new Databases(this.client);
     }
-
+ 
     // functionality
     async GetUser(){
 
@@ -20,8 +20,27 @@ export class DBService{
 
     }
 
-    async CreateUser(){
-
+    async CreateUser([firstName,
+        lastName,
+        profession,
+        description,
+        highestQualification]){
+        try {
+            const promise = this.databases.createDocument(
+                configURL.appwrite_db_ID,
+                configURL.appwrite_users_collection_id,
+                ID.unique(),
+                {firstName,
+                    lastName,
+                    profession,
+                    description,
+                    highestQualification
+                }
+            );
+            return promise;
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
     async UpdateUser(){

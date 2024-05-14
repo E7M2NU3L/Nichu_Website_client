@@ -55,7 +55,7 @@ class Authentication{
         try {
             const promise = await this.account.createVerification('https://localhost:3000/api/v1/users/account/verify');
 
-            promise.then(function (response) {
+            let response = promise.then(function (response) {
                 console.log(response);
             }, function (error) {
                 console.log(error);
@@ -76,7 +76,7 @@ class Authentication{
             const userId = urlParams.get('userId');
 
             // returning the promise
-            const promise = account.updateVerification(userId, secret);
+            const promise = this.account.updateVerification(userId, secret);
             return promise;
         } catch (error) {
             console.log(error.message);

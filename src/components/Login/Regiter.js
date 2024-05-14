@@ -12,36 +12,32 @@ import { Facebook, GitHub, Google } from "@mui/icons-material";
 import './main.css';
 import React from "react";
 import { Link } from "react-router-dom";
+import authService from "../../api/Auth";
  
 
 const Regiter = () => {
   
-  // get the form input
-  const [form, setForm] = React.useState({
-    name: '',
-    email: '',
-    password: ''
-  });
+  // Details
+  const [username, setUsername] = React.useState('');
+  const [email, SetEmail] = React.useState('');
+  const [password, SetPassword] = React.useState('');
 
-  // handle Name change
-  const handleNameChange = (e) => {
-    setForm({...form, name: e.target.value })
-  }
+  // function handlers
+  const handleUsername = (e) => setUsername(e.target.value);
 
-  // handle Email change
-  const handleEmailChange = (e) => {
-    setForm({...form, email: e.target.value })
-  }
+  const handleEmail = (e) => SetEmail(e.target.value);
 
-  // handle password change
-  const passwordChange = (e) => {
-    setForm({...form, password: e.target.value })
-  }
+  const handlePassword = (e) => SetPassword(e.target.value);
 
   // handle submit form
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async(e) => {
     e.preventDefault();
-    
+    try {
+      const response = await authService.RegisterUser([username, email, password]);
+      console.log(response);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   return (
@@ -81,8 +77,9 @@ const Regiter = () => {
             <GitHub className=""/>
           </div>
         </div>
-        <Input label="Email" size="lg" className="pb-0" />
-        <Input label="Password" size="lg" />
+        <Input label="Username" size="lg" className="pb-0" value={username} onChange={handleUsername} />
+        <Input label="Email" size="lg" className="pb-0" value={email} onChange={handleEmail} />
+        <Input label="Password" size="lg" value={password} onChange={handlePassword} />
         <div className="-ml-2.5">
           <Checkbox label="Remember Me" style={{
             color: "#1181D8"
@@ -92,7 +89,7 @@ const Regiter = () => {
       <CardFooter className="pt-0">
         <Button fullWidth style={{
           backgroundColor: "#1181D8"
-        }}>
+        }} onSubmit={handleSubmitForm}>
           Sign In
         </Button>
         <Typography variant="small" className="mt-6 flex justify-center">

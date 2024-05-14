@@ -29,52 +29,50 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
+import Nipix from '../../assets/images/nipixLogo.png'
  
 const navListMenuItems = [
   {
     title: "Products",
     description: "Find the perfect solution for your needs.",
     icon: SquaresPlusIcon,
+    link: "/"
   },
   {
     title: "About Us",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
+    link: "/#about"
   },
   {
-    title: "Blog",
-    description: "Find the perfect solution for your needs.",
+    title: "Feedbacks",
+    description: "Our clients and the ratings from our community",
     icon: Bars4Icon,
+    link: "/#feedbacks"
   },
   {
-    title: "Services",
+    title: "Courses",
     description: "Learn how we can help you achieve your goals.",
     icon: SunIcon,
+    link: "/#products"
   },
   {
-    title: "Support",
+    title: "contact",
     description: "Reach out to us for assistance or inquiries",
     icon: GlobeAmericasIcon,
+    link: "/#footer"
   },
   {
-    title: "Contact",
+    title: "Scope",
     description: "Find the perfect solution for your needs.",
     icon: PhoneIcon,
+    link: "/#scope"
   },
   {
-    title: "News",
-    description: "Read insightful articles, tips, and expert opinions.",
+    title: "Profile",
+    description: "profile information",
     icon: NewspaperIcon,
-  },
-  {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
-  },
-  {
-    title: "Special Offers",
-    description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
+    link: "/#profile"
   },
 ];
  
@@ -82,8 +80,8 @@ function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
+    ({ icon, title, description, link }, key) => (
+      <a href={link} key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
@@ -169,7 +167,11 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4">
+          <Link to="/courses">
+            Courses
+          </Link>
+        </ListItem>
       </Typography>
       <NavListMenu />
       <Typography
@@ -207,14 +209,17 @@ export function MegaMenuDefault() {
   return (
     <Navbar className="mx-auto max-w-screen px-4 py-2">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
-        >
-          <Link to="/">Nipix Tech</Link>
-        </Typography>
+        <div className="flex flex-row justify-around items-center">
+          <img src={Nipix} alt="Navbar-logo" className="h-18 w-16" />
+          <Typography
+            as="a"
+            href="#"
+            variant="h6"
+            className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+          >
+            <Link to="/">Nipix Tech</Link>
+          </Typography>  
+        </div>
         <div className="hidden lg:block">
           <NavList />
         </div>

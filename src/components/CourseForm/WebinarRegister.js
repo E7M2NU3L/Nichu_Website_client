@@ -37,7 +37,7 @@ const WebinarRegister = () => {
     }}>
         <Card color="transparent" className='blur-effect' shadow={false}>
             <Typography variant="h4" color="blue-gray">
-              Webinar Registration
+              Course Registration
             </Typography>
             <Typography color="gray" className="mt-1 font-normal">
                 Nice to meet you! Enter your details to register.

@@ -12,8 +12,29 @@ import { Facebook, GitHub, Google } from "@mui/icons-material";
 import './main.css';
 import React from "react";
 import { Link } from "react-router-dom";
+import authService from "../../api/Auth";
  
 const Login =() => {
+  
+  // state hadlers
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  // function handlers
+  const handlepassword = (e) => setPassword(e.target.value);
+
+  const handleEmail = (e) => setEmail(e.target.value);
+
+  // login functionality
+  const OnclickSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await authService.loginUser([email, password]);
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   return (
     <main className="flex justify-center items-center w-full"  style={{
       minHeight: "90vh", height: "100%", paddingTop: "3rem", paddingBottom: "3rem"
@@ -51,8 +72,8 @@ const Login =() => {
             <GitHub className=""/>
           </div>
         </div>
-        <Input label="Email" size="lg" className="pb-0" />
-        <Input label="Password" size="lg" />
+        <Input label="Email" size="lg" className="pb-0" value={email} onChange={handleEmail} />
+        <Input label="Password" size="lg" value={password} onChange={handlepassword} />
         <div className="-ml-2.5">
           <Checkbox label="Remember Me" style={{
             color: "#1181D8"
@@ -62,7 +83,9 @@ const Login =() => {
       <CardFooter className="pt-0">
         <Button fullWidth style={{
           backgroundColor: "#1181D8"
-        }}>
+        }}
+        onSubmit={OnclickSubmit}
+        >
           Sign In
         </Button>
         <Typography variant="small" className="mt-6 flex justify-center">
