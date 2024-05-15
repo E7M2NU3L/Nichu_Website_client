@@ -1,29 +1,39 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
-import { MegaMenuDefault } from "./utils/Navbar/Navbar";
+import Navbar from "./utils/Navbar/Navbar";
 import { Footer } from "./utils/Footer/Footer";
 import Webinars from "./components/Webinars/Webinars";
-import WebinarForm from "./components/WebinarRegister/webinarForm";
-import MainReg from "./components/Login/utils/MainReg";
 import Profile from "./pages/Profile";
 import Courses from "./components/Courses/Courses";
-import CourseForm from "./components/CourseForm/CourseForm";
+import Register from "./components/Login/Register";
+import Gallery from "./pages/Gallery";
+import CourseEnroll from "./components/CourseForm/CourseEnroll";
+import WebinarEnroll from "./components/WebinarRegister/WebinarEnroll";
+import Cart from "./pages/Cart";
+import WebinarPayment from "./pages/WebinarPayment";
+import CoursePayment from "./pages/CoursePayment";
+import FetchAlWebinars from "./components/Webinars/FetchAlWebinars";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <MegaMenuDefault />
+        <Navbar />
         <Routes>
           <Route path = "/" element = {<Home />} />
           <Route path = "/login" element = {<Login />} />
-          <Route path = "/webinars" element = {<Webinars />} />
-          <Route path="/register" element={<MainReg />} />
-          <Route path="/webinar/register" element={<WebinarForm />} />
+          <Route path = "/webinars" element = {<FetchAlWebinars />} />
+          <Route path="/webinars/:id" element={<Webinars />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/webinar/register" element={<WebinarEnroll />} />
+          <Route path="/webinar/payment" element={<WebinarPayment />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/register" element={<CourseForm />} />
+          <Route path="/courses/register" element={<CourseEnroll />} />
+          <Route path="/course/payment" element={<CoursePayment />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>

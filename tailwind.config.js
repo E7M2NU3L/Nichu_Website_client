@@ -7,7 +7,14 @@ module.exports = withMT({
     "./node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        // Add your custom colors here
+        primary: "#FF5733",
+        secondary: "#3498db",
+        // Add more colors as needed
+      },
+    },
   },
   plugins: [],
 });

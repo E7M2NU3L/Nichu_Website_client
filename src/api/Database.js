@@ -1,40 +1,51 @@
 import { Client, Databases, ID } from "appwrite";
-import { configURL } from "../config/configURL";
 
 export class DBService{
-    client = new Client().setEndpoint(configURL.appwrite_connection_url).setProject(
-        configURL.appwrite_connection_id
-    )
+    client;
     account;
 
     constructor(){
+        this.client = new Client().setEndpoint("https://cloud.appwrite.io/v1").setProject("65ec15ae94b048c5b098");
         this.databases = new Databases(this.client);
     }
  
     // functionality
-    async GetUser(){
-
+    async GetUser(slug){
+        try {
+            const promise = await this.databases.getDocument(
+                "65ec182e15ec8ffdec9d",
+                "65ec184a65550085f404",
+                slug
+            );
+            console.log(promise);
+            return promise
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
     }
 
-    async GetUsers(){
-
-    }
-
-    async CreateUser([firstName,
+    async CreateUser({firstName,
         lastName,
         profession,
         description,
-        highestQualification]){
+        highestQualification,
+        ProfileImage
+    }){
         try {
             const promise = this.databases.createDocument(
-                configURL.appwrite_db_ID,
-                configURL.appwrite_users_collection_id,
+                "65ec182e15ec8ffdec9d",
+                "65ec184a65550085f404",
                 ID.unique(),
-                {firstName,
+                {
+                    firstName,
                     lastName,
                     profession,
                     description,
-                    highestQualification
+                    highestQualification,
+                    ProfileImage
                 }
             );
             return promise;
@@ -43,76 +54,131 @@ export class DBService{
         }
     }
 
-    async UpdateUser(){
-
-    }
-
-    async DeleteUser(){
-
+    async UpdateUser({firstName,
+        lastName,
+        profession,
+        description,
+        highestQualification}){
+            try {
+                const promise = this.databases.updateDocument(
+                    "65ec182e15ec8ffdec9d",
+                    "65ec184a65550085f404",
+                    ID.unique(),
+                    {
+                        firstName,
+                        lastName,
+                        profession,
+                        description,
+                        highestQualification
+                    }
+                );
+                return promise;
+            } catch (error) {
+                console.log(error.message);
+            }
     }
 
     async GetWebinars(){
-
+        try {
+            const promise = await this.databases.listDocuments(
+                "65ec182e15ec8ffdec9d",
+                "65ec18ca5a5ac7f2ab45"
+            )
+            console.log(promise);
+            return promise;
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
     }
 
-    async GetWebinar(){
-
-    }
-
-    async CreateWebinar(){
-
-    }
-
-    async UpdateWebinar(){
-
-    }
-
-    async DeleteWebinar(){
-
+    async GetWebinar(slug){
+        try {
+            const promise = await this.databases.getDocument(
+                "65ec182e15ec8ffdec9d",
+                "65ec18ca5a5ac7f2ab45",
+                slug
+            )
+            console.log(promise);
+            return promise;
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
     }
 
     async RegisterWebinar(){
 
     }
 
-    async CreateInstructor(){
-
-    }
-
-    async DeleteInstructor(){
-
+    async GetInstructor(slug){
+        try {
+            const promise = await this.databases.getDocument(
+                "65ec182e15ec8ffdec9d",
+                "65ec1c68a1be3cdfa452",
+                slug
+            )
+            console.log(promise);
+            return promise;
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
     }
 
     async GetInstructors(){
-
-    }
-
-    async GetInstructor(){
-
-    }
-
-    async UpdateInstructor(){
-
-    }
-
-    async VerifyInstructor(){
-
-    }
-
-    async CreateCourse(){
-
-    }
-
-    async DeleteCourses(){
-
-    }
-
-    async UpdateCourse(){
-
+        try {
+            const promise = await this.databases.listDocuments(
+                "65ec182e15ec8ffdec9d",
+                "65ec1c68a1be3cdfa452"
+            )
+            console.log(promise);
+            return promise;
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
     }
 
     async GetCourses(){
+        try {
+            const promise = await this.databases.listDocuments(
+                "65ec182e15ec8ffdec9d",
+                "65ec18d41448ef512152"
+            )
+            console.log(promise);
+            return promise;
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
+    }
 
+    async FetchSingleCourse(slug){
+        try {
+            const promise = await this.databases.getDocument(
+                "65ec182e15ec8ffdec9d",
+                "65ec18d41448ef512152",
+                slug
+            )
+            console.log(promise);
+            return promise;
+        } catch (error) {
+            console.log(
+                "Error Occured: "+ error.message
+            );
+            return false;
+        }
     }
 }
 

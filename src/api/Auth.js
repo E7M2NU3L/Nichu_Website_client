@@ -1,26 +1,28 @@
 import { Client, Account, ID } from "appwrite";
-import { configURL } from "../config/configURL";
 
 class Authentication{
-    client = new Client().setEndpoint(configURL.appwrite_connection_url).setProject(configURL.appwrite_connection_id);
+    client;
     account;
 
     constructor(){
+        this.client = new Client().setEndpoint("https://cloud.appwrite.io/v1").setProject("65ec15ae94b048c5b098");
         this.account = new Account(this.client);
     }
 
-    async loginUser([email, password]){
+    async loginUser({
+        email, password
+    }){
         try {
             // collect the params
-            let email = String(email);
-            let password = String(password);
+            let Email = String(email);
+            let Password = String(password);
 
             // login the user
             let response = await this.account.createEmailPasswordSession({
-                email: email,
-                password: password
+                email: Email,
+                password: Password
             })
-
+            console.log(response);
             return response;            
         } catch (error) {
             console.log(error.message);
@@ -28,12 +30,12 @@ class Authentication{
         return null;
     }
 
-    async RegisterUser([username, password, email]){
+    async RegisterUser({
+        username,
+        email,
+        password
+    }){
         try {
-            // collect the params
-            let username = String(username);
-            let password = String(password);
-            let email = String(email);
 
             // register the user
             let response = await this.account.create({
@@ -42,9 +44,15 @@ class Authentication{
                 email: email
             })
 
-            // return response and login the user
-            this.loginUser([response.email, response.password]);
-            return response;
+            console.log(response);
+            if (response) {
+                // return response and login the user
+                this.loginUser([response.email, response.password]);
+                return response;   
+            }
+            else {
+                return false;
+            }
         } catch (error) {
             console.log(error.message);
         }
@@ -112,13 +120,8 @@ class Authentication{
         }
     }
 
-    async UpdatePassword([userID, secret, password]){
+    async UpdatePassword({userID, secret, password}){
         try {
-            // get the data
-            const userID = String(userID);
-            const secret = String(secret);
-            const password = String(password);
-
             // get the promise
             const promise = await this.account.updateRecovery(
                 userID,
