@@ -12,13 +12,13 @@ const CoursesContent = [
         id:1,
         title: "UI/UX Review Check",
         description: "The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to \"Naviglio\" where you can enjoy the main night life in Barcelona.",
-        link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        link: "/courses/single/12345"
     },
     {
         id:2,
         title: "UI/UX Review Check",
         description: "The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to \"Naviglio\" where you can enjoy the main night life in Barcelona.",
-        link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        link: "/courses/single/12345"
     }
 ]
    

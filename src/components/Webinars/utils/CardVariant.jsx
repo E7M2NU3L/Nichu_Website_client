@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
    
   export function BookingCard() {
     return (
-      <Link to="/webinars/1234">
         <Card className="w-full max-w-[20rem] shadow-lg shadow-gray-500 bg-gray-100 hover:scale-95 transition-all duration-200 ease-in-out">
         <CardHeader floated={false} color="blue-gray">
           <img
@@ -64,6 +63,5 @@ import { Link } from "react-router-dom";
           </button>
         </CardFooter>
       </Card>
-      </Link>
     );
   }

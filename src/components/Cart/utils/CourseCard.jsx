@@ -28,11 +28,15 @@ const CourseCard = () => {
                 72+ Video Lectures
             </Typography>
             
+            <section className='flex justify-between items-center w-full'>
             <Link to="/course/payment" >
             <button className='bg-blue-500 hover:bg-green-500 px-4 py-2 rounded-lg text-white font-semibold hvoer:font-bold hover:translate-x-2 hover:scale-110 transition-all duration-300 ease-out'>
                 Buy
             </button>
             </Link>
+
+                
+            </section>
         </section>
     </div>
   )

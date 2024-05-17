@@ -11,7 +11,7 @@ import {
 import { Facebook, GitHub, Google } from "@mui/icons-material";
 import './main.css';
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../../api/Auth";
  
 const Register =() => {
@@ -19,19 +19,29 @@ const Register =() => {
   // state hadlers
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [Username, setUsername] = React.useState('');
+  const [username, setUsername] = React.useState('');
 
   // function handlers
   const handlepassword = (e) => setPassword(e.target.value);
   const handleUsername = (e) => setUsername(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
 
+  const navigate = useNavigate();
+
   // login functionality
   const OnclickSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await authService.loginUser([email, password]);
+      console.log( username,
+        email,
+        password)
+      const response = await authService.RegisterUser({
+        username,
+        email,
+        password
+      });
       console.log(response);
+      navigate('/login');
     } catch (error) {
       console.log(error.message);
     }
@@ -40,7 +50,7 @@ const Register =() => {
     <main className="flex justify-center items-center"  style={{
       minHeight: "90vh", height: "100%", paddingTop: "3rem", paddingBottom: "3rem"
     }}>
-    <div className="background">
+    <form className="background" onSubmit={OnclickSubmit}>
     <Card className="w-[300px] sm:w-96 card-style bg-gray-200" style={{
         
       }}>
@@ -67,7 +77,7 @@ const Register =() => {
             <GitHub className=""/>
           </div>
         </div>
-        <Input label="Username" size="lg" className="pb-0" value={Username} onChange={handleUsername} />
+        <Input label="Username" size="lg" className="pb-0" value={username} onChange={handleUsername} />
         <Input label="Email" size="lg" className="pb-0" value={email} onChange={handleEmail} />
         <Input label="Password" size="lg" value={password} onChange={handlepassword} />
         <div className="-ml-2.5">
@@ -77,10 +87,9 @@ const Register =() => {
         </div>
       </CardBody>
       <CardFooter className="pt-0">
-        <Button fullWidth style={{
+        <Button fullWidth type="submit" style={{
           backgroundColor: "#1181D8"
         }}
-        onSubmit={OnclickSubmit}
         >
           Sign Up
         </Button>
@@ -102,7 +111,7 @@ const Register =() => {
         </Typography>
       </CardFooter>
     </Card>
-    </div>
+    </form>
     </main>
   );
 }

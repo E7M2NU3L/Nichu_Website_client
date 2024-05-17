@@ -3,6 +3,7 @@ import React from 'react'
 import HeroLogo from '../../../assets/images/hero-img.png'
 import { Link } from 'react-router-dom'
 import { TypeAnimation } from 'react-type-animation'
+import { ArrowRight } from '@mui/icons-material'
 
 const Hero = () => {
   return (
@@ -27,25 +28,13 @@ const Hero = () => {
         connecting minds from all corners of the globe, and embark on a transformative journey of learning and growth.</span>  
         </Typography>
 
+        <Link to="/register">
         <Button variant='gradient' className='flex items-center gap-3 hover:shadow-lg'>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g transform="translate(0 -1028.4)">
-              <g>
-                <path d="m7 1028.4-5 12h8l-4 10 14-14h-9l6-8z" fill="#f1c40f" />
-                <path fill="#f39c12" d="m7 1028.4-5 12h3l5-12zm3 12-4 10 3-3 4-7z" />
-                <path fill="#e67e22" d="m10 1040.4-0.4062 1h2.9062l0.5-1h-3z" />
-              </g>
-            </g>
-          </svg>
-          <Link to="/register">
             Explore
-          </Link>
+            <ArrowRight />
         </Button>
+        </Link>
+
       </div>
 
       <img src={HeroLogo} alt='hero-sect-logo' className='pt-[2rem] sm:pt-0' />  

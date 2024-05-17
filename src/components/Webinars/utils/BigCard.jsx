@@ -7,7 +7,7 @@ import {
     List,
     ListItem,
   } from "@material-tailwind/react";
-  import Cyber from '../../../assets/images/CyberSecurity.png'
+  import Cyber from '../../../assets/static/picturesquare-2.webp'
 import { CalendarMonth, CreditCard,VideoCall } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import './utils.css'
@@ -29,7 +29,7 @@ import './utils.css'
           <img
             src={Cyber}
             alt="webinar-thumbnail"
-            className="h-full w-full card-image rounded-none object-cover"
+            className="h-[400px] w-[300px] card-image rounded-none object-cover"
           />
         </CardHeader>
         <CardBody>

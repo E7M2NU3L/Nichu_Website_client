@@ -14,6 +14,9 @@ import Cart from "./pages/Cart";
 import WebinarPayment from "./pages/WebinarPayment";
 import CoursePayment from "./pages/CoursePayment";
 import FetchAlWebinars from "./components/Webinars/FetchAlWebinars";
+import SingleCourse from "./components/Courses/SingleCourse";
+import ProfileEdit from "./components/Profile/ProfileEdit";
+import IsLoggedin from "./middlewares/IsLoggedin";
 
 function App() {
   return (
@@ -22,16 +25,28 @@ function App() {
         <Navbar />
         <Routes>
           <Route path = "/" element = {<Home />} />
+
           <Route path = "/login" element = {<Login />} />
           <Route path = "/webinars" element = {<FetchAlWebinars />} />
-          <Route path="/webinars/:id" element={<Webinars />} />
+          <Route path="/webinars/:id" element={
+            <IsLoggedin>
+              <Webinars />
+            </IsLoggedin>
+          } />
+
           <Route path="/register" element={<Register />} />
+          
           <Route path="/webinar/register" element={<WebinarEnroll />} />
           <Route path="/webinar/payment" element={<WebinarPayment />} />
+          
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/update" element={<ProfileEdit />} />
+
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/register" element={<CourseEnroll />} />
           <Route path="/course/payment" element={<CoursePayment />} />
+          <Route path="/courses/single/:id" element={<SingleCourse />} />
+
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>

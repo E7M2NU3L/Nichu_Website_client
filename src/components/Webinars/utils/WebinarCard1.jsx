@@ -2,12 +2,23 @@ import { DateRange, Timelapse } from '@mui/icons-material'
 import React from 'react'
 import PlaceHolder from '../../../assets/images/hero-img.png';
 import { Divider, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const WebinarCard1 = () => {
-  return (
-        <Link to="/webinar/register">
-    <div className='w-[230px] min-h-[25rem] bg-gray-100 shadow-md shadow-gray-500 hover:shadow-lg rounded-lg hover:scale-105 translate-x-1 transition-all duration-200 ease-in-out'>
+
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate('/webinar/register');
+    }
+
+    const handleNav = (e) => {
+        e.preventDefault();
+        navigate('/webinars/1234')
+    }
+
+    return (
+    <div className='w-[230px] min-h-[25rem] bg-gray-100 shadow-md shadow-gray-500 hover:shadow-lg rounded-lg hover:scale-105 translate-x-1 transition-all duration-200 ease-in-out' onClick={handleNav}>
         <img src={PlaceHolder} alt='placeholder' className='w-full object-fit h-[14rem]' />
         
         <section className='flex flex-col justify-center items-center w-full h-full px-2 text-center'>
@@ -40,15 +51,12 @@ const WebinarCard1 = () => {
             </Typography>
 
             <section className='flex w-full justify-around items-center pt-2'>
-                <Link className='/webinars/register'>
-                <button className='bg-blue-500 text-white px-4 py-2 mb-[1rem] rounded-lg hover:translate-x-1 hover:scale-110 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-purple-400 hover:text-white transition-all duration-300 ease-in-out'>
+                <button className='bg-blue-500 text-white px-4 py-2 mb-[1rem] rounded-lg hover:translate-x-1 hover:scale-110 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-purple-400 hover:text-white transition-all duration-300 ease-in-out' onClick={handleClick}>
                     Register
                 </button>
-                </Link>
            </section>
         </section>
     </div>
-    </Link>
   )
 }
 

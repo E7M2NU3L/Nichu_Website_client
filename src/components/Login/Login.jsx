@@ -13,6 +13,8 @@ import './main.css';
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../api/Auth";
+import { useDispatch } from "react-redux";
+import {login, logout} from '../../features/authSlice';
  
 const Login =() => {
   
@@ -22,24 +24,41 @@ const Login =() => {
 
   // function handlers
   const handlepassword = (e) => setPassword(e.target.value);
-
   const handleEmail = (e) => setEmail(e.target.value);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // login functionality
   const OnclickSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await authService.loginUser([email, password]);
-      console.log(response);
+      const response = await authService.loginUser({
+        email,
+        password
+      });
+      if (response) {
+        console.log(response);
+        dispatch(
+          login({
+            isLoggedin : true,
+            isRegistered : true,
+            userData: response 
+          })
+        )
+        
+        navigate('/');
+      }
+      else {
+        return false;
+      }
     } catch (error) {
       console.log(error.message);
       
     }
   }
   return (
-    <main className="flex justify-center items-center"  style={{
+    <form className="flex justify-center items-center" onSubmit={OnclickSubmit}  style={{
       minHeight: "90vh", height: "100%", paddingTop: "3rem", paddingBottom: "3rem"
     }}>
     <Card className="w-[300px] sm:w-96 card-style bg-gray-200" style={{
@@ -79,8 +98,7 @@ const Login =() => {
       <CardFooter className="pt-0">
         <Button fullWidth style={{
           backgroundColor: "#1181D8"
-        }}
-        onSubmit={OnclickSubmit}
+        }} type="submit"
         >
           Sign In
         </Button>
@@ -102,7 +120,7 @@ const Login =() => {
         </Typography>
       </CardFooter>
     </Card>
-    </main>
+    </form>
   );
 }
 

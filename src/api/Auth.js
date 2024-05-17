@@ -13,15 +13,13 @@ class Authentication{
         email, password
     }){
         try {
-            // collect the params
-            let Email = String(email);
-            let Password = String(password);
-
+            console.log("from Login user")
+            console.log(email, password);
             // login the user
-            let response = await this.account.createEmailPasswordSession({
-                email: Email,
-                password: Password
-            })
+            let response = await this.account.createEmailPasswordSession(
+                email,
+                password
+            )
             console.log(response);
             return response;            
         } catch (error) {
@@ -38,16 +36,16 @@ class Authentication{
         try {
 
             // register the user
-            let response = await this.account.create({
-                username: username,
-                password: password,
-                email: email
-            })
+            let response = await this.account.create(
+                ID.unique(),
+                email,
+                password,
+                username
+            )
 
             console.log(response);
             if (response) {
-                // return response and login the user
-                this.loginUser([response.email, response.password]);
+                console.log("Login Response: "+response);
                 return response;   
             }
             else {
