@@ -1,10 +1,46 @@
 import { Typography } from '@material-tailwind/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CourseCard from './CourseCard'
-import { Pagination } from '@mui/material'
+import { CircularProgress, Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
+import db_Service from '../../../api/Database'
 
 const Products = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchWebinars = async () => {
+      try {
+        const req = await db_Service.GetCourses();
+        setData(req.documents);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWebinars();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className='w-full min-h-[30vh] flex justify-center items-center'>
+        <CircularProgress />
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main className='w-full min-h-[30vh] flex justify-center items-center'>
+        <Typography variant="h6" color="error">{error}</Typography>
+      </main>
+    );
+  }
+
   return (
     <main id="products">
 

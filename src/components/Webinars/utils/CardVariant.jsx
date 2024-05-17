@@ -58,8 +58,10 @@ import { Link } from "react-router-dom";
 
         </CardBody>
         <CardFooter className="pt-3">
-          <button className="flex gap-x-[8px] px-5 py-2 text-white rounded-lg shadow-md font-semibold hover:font-bold hover:translate-x-2 hover:scale-110 bg-blue-500 hover:bg-blue-600 transition-all duration-300 ease-in-out">
+        <button className="flex gap-x-[8px] px-5 py-2 text-white rounded-lg shadow-md font-semibold hover:font-bold hover:translate-x-2 hover:scale-110 bg-blue-500 hover:bg-blue-600 transition-all duration-300 ease-in-out">
+            <a className="flex gap-x-[8px]" href="https://youtu.be/dzdiMRovyK0?si=sCKzygEA4TCEkVjX">
             Recorded Session <ViewAgenda />
+            </a>
           </button>
         </CardFooter>
       </Card>

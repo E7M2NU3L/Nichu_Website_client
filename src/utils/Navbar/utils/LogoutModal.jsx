@@ -5,6 +5,9 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
+import authService from '../../../api/Auth';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../features/authSlice';
 
 const style = {
   position: 'absolute',
@@ -23,12 +26,15 @@ export default function LogoutModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = async (e) => {
     e.preventDefault();
 
     try {
       // response data
+        await authService.Logout();
+        dispatch(logout())
         console.log("The Logout has been successfull");
         navigate('/')
         handleClose();

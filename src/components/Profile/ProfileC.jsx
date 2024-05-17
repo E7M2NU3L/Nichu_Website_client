@@ -11,7 +11,7 @@ const ProfileC = () => {
             <span className='pe-2 text-blue-500 font-semibold'>Profile</span> Page
         </Typography>
 
-        <button className='bg-blue-400 right-[3rem] bottom-[0.5rem] absolute px-4 py-2 rounded-md hover:shadow-md text-white font-semibold hover:font-bold mb-[1rem] hover:bg-green-400 transition-all duration-300 ease-in-out'>
+        <button className='bg-blue-400 sm:right-[3rem] right-[0rem] bottom-[0.5rem] absolute px-4 py-2 rounded-md hover:shadow-md text-white font-semibold hover:font-bold mb-[1rem] hover:bg-green-400 transition-all duration-300 ease-in-out'>
             <Link to="/profile/update">
                 Edit
             </Link>

@@ -49,22 +49,22 @@ const CourseContentFull = [{
     return (
       <main>
         {CourseContentFull.map((content) => (
-          <Card className="w-[400px] min-h-[40vh] flex-col sm:flex-row" key={content.id} style={{
+          <Card className="sm:w-[400px] w-[300px] min-h-[40vh] flex-col sm:flex-row" key={content.id} style={{
             border: "1px solid transparent",
           }}>
             <CardHeader
               shadow={false}
               floated={false}
-              className="m-0 shrink-0 rounded-r-none w-[35%] "
+              className="m-0 shrink-0 rounded-r-none w-full sm:w-[35%] "
             >
               <img
                 src={Cyber}
                 alt="webinar-thumbnail"
-                className="h-full card-image rounded-none object-cover"
+                className="h-full w-full card-image rounded-none object-cover"
               />
             </CardHeader>
 
-            <CardBody className="w-3/4">
+            <CardBody className="sm:w-3/4 w-full">
               <Typography color="gray" className="mb-2 uppercase text-xl font-bold">
                 Introduction to Machine Learning
                 </Typography>

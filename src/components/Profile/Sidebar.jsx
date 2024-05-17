@@ -10,8 +10,8 @@ import ProfileProxy from '../../proxy/ProfileProxy';
 import { List } from '@material-tailwind/react';
 
 const Sidebar = () => {
-    const ActiveLink = "flex gap-x-[0.5rem] hover:bg-blue-500 font-semibold hover:font-bold text-white transition-all duration-300 ease-in-out";
-    const InactiveLink = "flex gap-x-[0.5rem] text-black font-normal";
+    const ActiveLink = "flex gap-y-[0.5rem] py-[1rem] font-semibold hover:font-bold text-black transition-all duration-300 ease-in-out";
+    const InactiveLink = "flex gap-y-[0.5rem] text-black font-normal py-[0.8rem]";
 
     const snapshot = useSnapshot(ProfileProxy);
     console.log(snapshot);
@@ -35,35 +35,35 @@ const Sidebar = () => {
     }
 
     return (
-        <div className='sm:w-1/4 w-[10%] bg-gray-200 min-h-[90vh]'>
+        <div className='relative sm:min-w-[300px] w-[10%] bg-gray-200 min-h-[90vh]'>
             <List>
                 <ListItem disablePadding>
-                    <ListItemButton className={snapshot.profile ? ActiveLink : InactiveLink} onClick={handleProfile}>
+                    <button className={snapshot.profile ? ActiveLink : InactiveLink} onClick={handleProfile}>
                         <ListItemIcon>
                             <Person />
                         </ListItemIcon>
                         <ListItemText primary="Profile" className='text-dark-1 font-semibold hidden sm:block' />
-                    </ListItemButton>
+                    </button>
                 </ListItem>
-                <Divider />
+                <Divider className='hidden sm:block' />
                 <ListItem disablePadding>
-                    <ListItemButton className={snapshot.Courses ? ActiveLink : InactiveLink} onClick={handleCourses}>
+                    <button className={snapshot.Courses ? ActiveLink : InactiveLink} onClick={handleCourses}>
                         <ListItemIcon>
                             <Computer />
                         </ListItemIcon>
                         <ListItemText primary="Courses" className='text-dark-1 font-semibold hidden sm:block' />
-                    </ListItemButton>
+                    </button>
                 </ListItem>
-                <Divider />
+                <Divider className='hidden sm:block'/>
                 <ListItem disablePadding>
-                    <ListItemButton className={snapshot.Webinars ? ActiveLink : InactiveLink} onClick={handleWebinars}>
+                    <button className={snapshot.Webinars ? ActiveLink : InactiveLink} onClick={handleWebinars}>
                         <ListItemIcon>
                             <Search />
                         </ListItemIcon>
                         <ListItemText primary="Webinar" className='text-dark-1 font-semibold hidden sm:block' />
-                    </ListItemButton>
+                    </button>
                 </ListItem>
-                <Divider />
+                <Divider className='hidden sm:block'/>
             </List>
         </div>
     );

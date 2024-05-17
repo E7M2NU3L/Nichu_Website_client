@@ -18,7 +18,7 @@ const UserStatus = [{
    
   export function ProfileCard() {
     return (
-      <main className="flex justify-center items-center">
+      <main className="flex justify-center items-center w-full ms-[2rem] sm:ps-0">
         {UserStatus.map((content) => (
             <Card className="w-96 shadow-lg shadow-gray-500 max-h-[70vh]">
             <CardHeader floated={false} className="h-80">
