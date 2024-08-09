@@ -11,7 +11,7 @@ const IsLoggedin = ({children}) => {
     const conditionalRender = () => {
         return (
             <React.Fragment>
-                {(authentication === true ) ?  (
+                {(true ) ?  (
                     <>
                         {children}
                     </>

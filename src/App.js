@@ -17,6 +17,11 @@ import FetchAlWebinars from "./components/Webinars/FetchAlWebinars";
 import SingleCourse from "./components/Courses/SingleCourse";
 import ProfileEdit from "./components/Profile/ProfileEdit";
 import IsLoggedin from "./middlewares/IsLoggedin";
+import CourseDetails from "./components/Courses/course-details";
+import WebinarAlt from "./components/Webinars/webinar-alt";
+import Products from "./pages/products";
+import SingleProduct from "./pages/single-product";
+import BuyProduct from "./pages/product-buy";
 
 function App() {
   return (
@@ -30,7 +35,7 @@ function App() {
           <Route path = "/webinars" element = {<FetchAlWebinars />} />
           <Route path="/webinars/:id" element={
             <IsLoggedin>
-              <Webinars />
+              <WebinarAlt />
             </IsLoggedin>
           } />
 
@@ -38,6 +43,10 @@ function App() {
           
           <Route path="/webinar/register" element={<WebinarEnroll />} />
           <Route path="/webinar/payment" element={<WebinarPayment />} />
+         
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+          <Route path="/products/buy/:id" element={<BuyProduct />} />
           
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/update" element={<ProfileEdit />} />
@@ -46,6 +55,7 @@ function App() {
           <Route path="/courses/register" element={<CourseEnroll />} />
           <Route path="/course/payment" element={<CoursePayment />} />
           <Route path="/courses/single/:id" element={<SingleCourse />} />
+          <Route path="/courses/details/:id" element={<CourseDetails />} />
 
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/cart" element={<Cart />} />

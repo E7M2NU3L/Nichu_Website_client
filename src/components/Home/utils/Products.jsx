@@ -6,6 +6,7 @@ import Image1 from '../../../assets/images/carousel2.jpg'
 import Image2 from '../../../assets/images/carousel3.jpg'
 import Image3 from '../../../assets/images/carousel5.jpg'
 import Image4 from '../../../assets/images/carousel7.jpg'
+import { Link } from "react-router-dom";
 
 const courses = [
   {
@@ -180,7 +181,8 @@ const Products = () => {
               transition={{ duration: 0.5 }}
               className="flex-shrink-0"
             >
-              <Card className="w-[300px] h-full">
+             <Link to={"/courses/details/12345"}>
+             <Card className="w-[300px] h-full">
                 <CardMedia
                   component="img"
                   image={course.image}
@@ -196,6 +198,7 @@ const Products = () => {
                   </Typography>
                 </CardContent>
               </Card>
+             </Link>
             </motion.div>
           ))}
         </Box>

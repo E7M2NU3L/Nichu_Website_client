@@ -1,4 +1,4 @@
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID, OAuthProvider } from "appwrite";
 
 class Authentication{
     client;
@@ -147,9 +147,9 @@ class Authentication{
     async GoogleSignin(){
         try {
             const promise = await this.account.createOAuth2Session(
-                "google",
-                "https://localhost:3000/api/v1/users/account/google",
-                "https://localhost:3000/v1/users/register",
+                OAuthProvider.Google,
+                "https://localhost:3000/",
+                "https://localhost:3000/regiter",
             )
             return promise;
         } catch (error) {
@@ -163,7 +163,7 @@ class Authentication{
             const promise = await this.account.createOAuth2Session(
                 "facebook",
                 "https://localhost:3000/api/v1/users/account/facebook",
-                "https://localhost:3000/v1/users/register",
+                "https://localhost:3000/register",
             )
             return promise;
         } catch (error) {
@@ -175,9 +175,9 @@ class Authentication{
     async GitHubSignin(){
         try {
             const promise = await this.account.createOAuth2Session(
-                "github",
-                "https://localhost:3000/api/v1/users/account/github",
-                "https://localhost:3000/v1/users/register",
+                OAuthProvider.Github,
+                "https://localhost:3000/",
+                "https://localhost:3000/register",
             )
             return promise; 
         }

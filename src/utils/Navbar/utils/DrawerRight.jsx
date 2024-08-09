@@ -39,8 +39,8 @@ export default function DrawerRight() {
         <BrowseGallery />
     ];
 
-    const labels = ['Courses', 'Webinars', 'Gallery'];
-    const links = ['/courses', '/webinars', '/gallery']
+    const labels = ['Courses', 'Webinars', 'Gallery', 'Products'];
+    const links = ['/courses', '/webinars', '/gallery', '/products']
 
     const arrayOfObjects = labels.map((label, index) => ({
         text: label,

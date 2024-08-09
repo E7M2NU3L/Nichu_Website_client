@@ -6,7 +6,7 @@ import './main.css';
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../api/Auth";
-import { ToastContainer, toast } from 'react-toastify';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
@@ -24,6 +24,46 @@ const Register = () => {
   const handleEmail = (e) => setEmail(e.target.value);
 
   const navigate = useNavigate();
+
+  const handleGoogleAuth = async () => {
+    try {
+      await authService.GoogleSignin();
+    } catch (error) {
+      if (error) {
+        toast.error(error.message , {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+      }
+    }
+  }
+
+  const handleGithubAuth = async () => {
+    try {
+      await authService.GitHubSignin();
+    } catch (error) {
+      if (error) {
+        toast.error(error.message , {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+      }
+    }
+  }
 
   // registration functionality
   const OnclickSubmit = async (e) => {
@@ -79,15 +119,11 @@ const Register = () => {
               <div className="h-px w-20 bg-muted-foreground/20" />
             </div>
             <div className="flex items-center justify-around gap-[0.8rem] px-3 flex-wrap">
-              <Button variant="outline" className="max-w-md mx-auto flex justify-around items-center">
+              <Button variant="outline" className="max-w-md mx-auto flex justify-around items-center" onClick={handleGoogleAuth}>
                 <ChromeIcon className="h-5 w-5 mr-2" />
                 Google
               </Button>
-              <Button variant="outline" className="max-w-md mx-auto flex justify-around items-center">
-                <FacebookIcon className="h-5 w-5 mr-2" />
-                Facebook
-              </Button>
-              <Button variant="outline" className="max-w-md mx-auto flex justify-around items-center">
+              <Button variant="outline" className="max-w-md mx-auto flex justify-around items-center" Onclick={handleGithubAuth}>
                 <GithubIcon className="h-5 w-5 mr-2" />
                 GitHub
               </Button>

@@ -67,7 +67,7 @@ const WebinarEnroll = () => {
     <div className='flex justify-center items-center w-full' style={{
         minHeight: "90vh", height: "100%", paddingTop: "4rem", paddingBottom: "4rem"
     }}>
-        <Card color="transparent" className='bg-gray-300 shadow-lg shadow-gray-400 px-[2rem] py-[1.5rem]' shadow={false}>
+        <Card color="transparent" className='shadow-lg shadow-gray-400 px-[2rem] py-[1.5rem]' shadow={false}>
             <Typography variant="h4" color="blue-gray">
               Join the Webinar
             </Typography>

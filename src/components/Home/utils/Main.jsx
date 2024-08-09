@@ -14,39 +14,39 @@ export default function Main() {
 
   const testimonials = [
     {
-      name: "Jane Smith",
-      role: "Software Engineer",
-      quote: "The one-on-one mentoring sessions were invaluable in helping me master the fundamentals of programming. The project-based learning approach really solidified my understanding.",
+      name: "Shobana P",
+      role: "UI/UX Design Intern",
+      quote: "way of their teaching and explaining each topics was able understand the concepts",
       imgSrc: ""
     },
     {
-      name: "Michael Rodriguez",
-      role: "Electrical Engineer",
-      quote: "The hands-on projects in electronics were a game-changer for me. I was able to apply what I learned in the one-on-one sessions and see immediate results.",
+      name: "Pasala Sathvika",
+      role: "AIML Intern",
+      quote: "Good teaching on basics and hands-on training . Very informative and interesting project ideas.  ",
       imgSrc: ""
     },
     {
-      name: "Lisa Wang",
-      role: "Computer Science Student",
-      quote: "The one-on-one mentoring sessions and project-based learning approach have been instrumental in helping me develop my programming skills. I'm now more confident in my abilities.",
+      name: "Premachand",
+      role: "AIML Intern",
+      quote: "Very detailed and excellent course for people who wants to know more bout ai and ml ",
       imgSrc: ""
     },
     {
-      name: "John Doe",
-      role: "Aspiring Robotics Engineer",
-      quote: "The project-based learning approach in electronics has been incredibly helpful. I'm now able to design and build my own circuits with confidence.",
+      name: "Vijay Prasanth ",
+      role: "AIML Intern",
+      quote: "Very good teaching and I like the way sir is teaching both technically and practically and some sessions by sriram sir was very motivable and I have a lots of fun.",
       imgSrc: ""
     },
     {
-      name: "Sarah Anderson",
-      role: "Freelance Web Developer",
-      quote: "The one-on-one mentoring sessions have been invaluable in helping me improve my web development skills. I'm now able to take on more complex projects with confidence.",
+      name: "Tejeswar S",
+      role: "UI/UX Design Intern",
+      quote: "The explanation of every tools of Figma was explained clearly ",
       imgSrc: ""
     },
     {
-      name: "Tom Lee",
-      role: "Embedded Systems Engineer",
-      quote: "The project-based learning approach in electronics has been a game-changer for me. I'm now able to design and build complex embedded systems with ease.",
+      name: "Akshaya R",
+      role: "AIML Interns",
+      quote: " Supportive mentor and good way of teaching",
       imgSrc: ""
     }
   ];

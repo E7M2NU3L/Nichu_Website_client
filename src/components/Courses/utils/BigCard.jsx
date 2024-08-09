@@ -9,6 +9,8 @@ import Cyber from '../../../assets/images/CyberSecurity.png'
 import { ArrowRight } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import './utils.css'
+import { FaPaperclip } from "react-icons/fa";
+import { CardMedia } from "@mui/material";
 
 const CourseContentFull = [{
   id: 1,
@@ -21,28 +23,24 @@ const CourseContentFull = [{
 
 export function HorizontalCard() {
   return (
-      <Link className="flex flex-wrap justify-center gap-4 p-4" to={"/courses/single/12334"}>
+      <div className="flex flex-wrap justify-center gap-4 p-4">
           {CourseContentFull.map((content) => (
               <Card
                   className="w-[300px] sm:w-[400px] min-h-[50vh] flex flex-col rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out"
                   key={content.id}
               >
                   <CardHeader
-                      shadow={false}
-                      floated={false}
-                      className="relative w-full rounded-t-lg overflow-hidden"
-                  >
-                      <img
-                          src={Cyber}
-                          alt="webinar-thumbnail"
-                          className="w-full h-48 relative object-cover"
-                      />
-                      <div className="absolute top-2 left-2 bg-white text-black text-sm px-2 py-1 rounded-lg">
-                          <Typography className="text-xs font-medium">
-                              {content.learners} Learners
-                          </Typography>
-                      </div>
-                  </CardHeader>
+                      title="Top Courses"
+                    subheader={`${content.learners} Learners`}
+                  />
+                  <CardMedia
+                        component="img"
+                        sx={{
+                            height : 200
+                        }}
+                        image={Cyber}
+                        alt="Paella dish"
+                    />
 
                   <CardBody className="p-4 flex flex-col flex-1">
                       {/* Remove Title */}
@@ -63,19 +61,31 @@ export function HorizontalCard() {
                           <Typography className="text-lg font-semibold text-blue-500 mb-2">
                               Rs. {content.payment}
                           </Typography>
+                         <div className="flex justify-between w-full items-center px-3">
+                         <Link to="/courses/details/12345">
+                              <Button
+                                  variant="contained"
+                                  color="green"
+                                  className="flex items-center gap-x-2 "
+                              >
+                                  View Details <FaPaperclip />
+                              </Button>
+                          </Link>
                           <Link to="/courses/register">
                               <Button
                                   variant="button"
                                   color="blue"
-                                  className="flex items-center gap-2 px-4 py-2 rounded-lg transition-transform transform hover:scale-105"
+                                  className="flex items-center gap-x-2 "
+                                  size="sm"
                               >
                                   Register <ArrowRight />
                               </Button>
                           </Link>
+                         </div>
                       </section>
                   </CardBody>
               </Card>
           ))}
-      </Link>
+      </div>
   );
 }

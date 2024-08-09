@@ -18,13 +18,13 @@ const Navbar = () => {
       <Link to="/">
       <div className='rounded-full flex justify-center items-center gap-x-[1rem]'>
           <img src={Logo} alt='admin-panel-nipix' className='rounded-full w-12 h-12  hover:translate-x-2 hover:scale-105 transition-all duration-300 ease-in-out' />
-          <h1 className='text-xl hidden sm:flex text-dark-2 font-semibold'>
+          <h1 className='text-xl hidden md:flex text-dark-2 font-semibold'>
             Nipix <span className='text-blue-400 font-bold'>Tech</span> 
           </h1>
       </div>
       </Link>
       
-      <ul className='sm:flex items-center gap-x-[2rem] justify-center hidden'>
+      <ul className='md:flex items-center gap-x-[2rem] justify-center hidden'>
         <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
           <Link className='' to="/courses ">
             Courses
@@ -33,6 +33,11 @@ const Navbar = () => {
         <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
           <Link className='' to="/webinars">
             Webinars
+          </Link>
+        </li>
+        <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
+          <Link className='' to="/products ">
+            Products
           </Link>
         </li>
         <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
@@ -47,7 +52,7 @@ const Navbar = () => {
        <>
         {(authentication) ? (
           <React.Fragment>
-            <div className='rounded-lg sm:flex justify-around items-center gap-x-[1rem] hidden '>
+            <div className='rounded-lg md:flex justify-around items-center gap-x-[1rem] hidden '>
               <Link to="/cart">
                 <Shop2 />
               </Link>
@@ -61,7 +66,7 @@ const Navbar = () => {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <div className='rounded-lg sm:flex justify-around items-center gap-x-[1rem] hidden '>
+            <div className='rounded-lg md:flex justify-around items-center gap-x-[1rem] hidden '>
             <button className='text-md text-white bg-blue-500 px-2 py-1 rounded-lg shadow-md font-semibold hover:translate-x-1 hover:bg-blue-500 hover:text-white hover:scale-105 transition-all duration-300 ease-in-out'>
               <Link to="/login">
                 Login
@@ -78,7 +83,7 @@ const Navbar = () => {
         )}
        </>
 
-    <div className='sm:hidden block'>
+    <div className='md:hidden block'>
       <DrawerRight />
     </div>
 
