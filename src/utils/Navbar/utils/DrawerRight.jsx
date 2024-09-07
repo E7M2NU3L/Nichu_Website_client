@@ -8,10 +8,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import {BrowseGallery, CreateOutlined, GolfCourse, Login, LogoutRounded, Menu, Person, Person2Sharp, Shop2, WebOutlined } from '@mui/icons-material';
+import {BrowseGallery, CreateOutlined, GolfCourse, Home, Login, LogoutRounded, Menu, Person, Person2Sharp, Shop2, WebOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authStatus } from '../../../features/authSlice';
+import { SiAboutdotme } from 'react-icons/si';
 
 
 export default function DrawerRight() {
@@ -33,14 +34,16 @@ export default function DrawerRight() {
   };
 
     const Iconset = [
+        <Home />,
         <Person />,
         <GolfCourse />,
         <WebOutlined />,
-        <BrowseGallery />
+        <BrowseGallery />,
+        <SiAboutdotme />
     ];
 
-    const labels = ['Courses', 'Webinars', 'Gallery', 'Products'];
-    const links = ['/courses', '/webinars', '/gallery', '/products']
+    const labels = ['Home', 'Courses', 'Webinars', 'Gallery', 'Products', 'About us'];
+    const links = ['/', '/courses', '/webinars', '/gallery', '/products', '/about-us']
 
     const arrayOfObjects = labels.map((label, index) => ({
         text: label,

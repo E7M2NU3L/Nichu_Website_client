@@ -1,4 +1,4 @@
-import { Client, Account} from 'appwrite';
+import { Client, Account, Databases} from 'appwrite';
 import { configURL } from './configURL';
 
 export const client = new Client();
@@ -8,4 +8,4 @@ client
     .setProject(configURL.appwrite_connection_id); // Replace with your project ID
 
 export const account = new Account(client);
-export { ID } from 'appwrite';
+export const databases = new Databases(client);

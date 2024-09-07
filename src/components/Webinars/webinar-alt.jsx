@@ -43,9 +43,10 @@ export default function WebinarAlt() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <main className="flex justify-around w-full  items-center py-12 md:py-24 lg:py-32 flex-col md:flex-row gap-y-7 flex-wrap md:flex-nowrap">
+      <section className=" bg-muted">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="flex flex-col items-center justify-center space-y-4">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Topics Covered</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -53,7 +54,7 @@ export default function WebinarAlt() {
               </p>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+          <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:gap-12">
             <div className="flex flex-col justify-center space-y-4">
               <ul className="grid gap-4">
                 <li className="flex items-center gap-2">
@@ -94,51 +95,10 @@ export default function WebinarAlt() {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-col justify-center space-y-4">
-              <ul className="grid gap-4">
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-5 w-5 text-primary" />
-                  <div>
-                    <h3 className="text-lg font-bold">Testing and Debugging</h3>
-                    <p className="text-muted-foreground">
-                      Discover best practices for testing and debugging your React applications.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-5 w-5 text-primary" />
-                  <div>
-                    <h3 className="text-lg font-bold">Deployment and Hosting</h3>
-                    <p className="text-muted-foreground">
-                      Learn how to deploy your React applications to various hosting platforms.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-5 w-5 text-primary" />
-                  <div>
-                    <h3 className="text-lg font-bold">Best Practices and Patterns</h3>
-                    <p className="text-muted-foreground">
-                      Explore industry-standard best practices and design patterns for building scalable React
-                      applications.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-5 w-5 text-primary" />
-                  <div>
-                    <h3 className="text-lg font-bold">Real-World Examples</h3>
-                    <p className="text-muted-foreground">
-                      Dive into practical examples and case studies to reinforce your learning.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -160,6 +120,7 @@ export default function WebinarAlt() {
           </div>
         </div>
       </section>
+      </main>
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -186,19 +147,6 @@ export default function WebinarAlt() {
                 <GithubIcon className="h-6 w-6 text-primary" />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-        <div className="container px-4 md:px-6 text-center">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to Master React?</h2>
-            <p className="text-muted-foreground md:text-xl">
-              Sign up for our comprehensive React webinar and take your web development skills to the next level.
-            </p>
-            <Button size="lg" variant="contained" color="success" className="w-full sm:w-auto">
-              Register Now
-            </Button>
           </div>
         </div>
       </section>

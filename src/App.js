@@ -22,6 +22,8 @@ import WebinarAlt from "./components/Webinars/webinar-alt";
 import Products from "./pages/products";
 import SingleProduct from "./pages/single-product";
 import BuyProduct from "./pages/product-buy";
+import AboutUs from "./pages/about-us";
+import SingleEvent from "./pages/single-event";
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/update" element={<ProfileEdit />} />
 
+          <Route path="/about-us" element={<AboutUs />} />
+
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/register" element={<CourseEnroll />} />
           <Route path="/course/payment" element={<CoursePayment />} />
@@ -58,6 +62,7 @@ function App() {
           <Route path="/courses/details/:id" element={<CourseDetails />} />
 
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/gallery/:id" element={<SingleEvent />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />

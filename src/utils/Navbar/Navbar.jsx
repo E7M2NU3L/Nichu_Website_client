@@ -25,6 +25,11 @@ const Navbar = () => {
       </Link>
       
       <ul className='md:flex items-center gap-x-[2rem] justify-center hidden'>
+      <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
+          <Link className='bg-blue-500 text-white px-4 py-2 rounded-md' to="/">
+            Home
+          </Link>
+        </li>
         <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
           <Link className='' to="/courses ">
             Courses
@@ -43,6 +48,11 @@ const Navbar = () => {
         <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
           <Link className='' to="/gallery">
             Gallery
+          </Link>
+        </li>
+        <li className='text-md text-dark-2 font-semibold hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
+          <Link className='' to="/about-us">
+            About us
           </Link>
         </li>
       </ul>

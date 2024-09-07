@@ -21,6 +21,9 @@ class Authentication{
                 password
             )
             console.log(response);
+
+            if (!response) throw Error;
+            
             return response;            
         } catch (error) {
             console.log(error.message);
@@ -149,7 +152,7 @@ class Authentication{
             const promise = await this.account.createOAuth2Session(
                 OAuthProvider.Google,
                 "https://localhost:3000/",
-                "https://localhost:3000/regiter",
+                "https://localhost:3000/register",
             )
             return promise;
         } catch (error) {
