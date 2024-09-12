@@ -1,5 +1,5 @@
 import { Facebook, Instagram, LinkedIn, Twitter, WhatsApp } from "@mui/icons-material";
-import { Typography } from "@mui/material";
+import { IconButton, Tooltip, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
  
 const LINKS = [
@@ -30,6 +30,10 @@ const LINKS = [
     }, {
       text:  "gallery",
       link: "/gallery"
+    },
+    {
+      text:  "privacy policy",
+      link: "/privacy-policy"
     }],
   },
 ];
@@ -81,11 +85,16 @@ export function Footer() {
             Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
-            <Facebook />
+           
+            <Link to="https://www.instagram.com/nipixtech?igsh=ZXFsOW42OGV5cXJp" target="_blank">
             <Instagram />
+            </Link>
+            <Link to={"https://www.linkedin.com/company/nipix-technology/?originalSubdomain=in"} target="_blank">
             <LinkedIn />
+            </Link>
+            <Tooltip title={"+91 93610 30360"}>
             <WhatsApp />
-            <Twitter />
+            </Tooltip>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { FetchEvent } from '../../api/db/blogs';
 import { Spinner } from '@material-tailwind/react';
 
 const Posts = () => {
-  const dummyData = Array.from({ length: 50 }, (_, index) => ({
+  const dummyData = Array.from({ length: 1 }, (_, index) => ({
     id: index + 1,
     title: `Event ${index + 1}`,
     description: `Description for event ${index + 1}`,
@@ -27,7 +27,6 @@ const Posts = () => {
       const FetchEventfromDb = async () => {
         try {
           const promise = await FetchEvent();
-          console.log(promise);
 
           if (promise) setData(promise);
           else toast.info("The Events Data Failed to load, please try again");
@@ -56,7 +55,7 @@ const Posts = () => {
 
      {(data !== null && data.documents) ? (
       <>
-       <main className='flex justify-center items-center w-full h-full py-[2.2rem] flex-wrap gap-x-[1.8rem] gap-y-[2rem] sm:gap-y-[2.2rem]'>
+       <main className='flex justify-start items-center w-full h-full py-[2.2rem] flex-wrap gap-x-[1.8rem] gap-y-[2rem] sm:gap-y-[2.2rem] max-w-7xl mx-auto'>
         {paginatedData.map((item) => (
           <PostCard key={item.$id} title={item.Title} description={item.Description} image={item.Image} id={item.$id} />
         ))}

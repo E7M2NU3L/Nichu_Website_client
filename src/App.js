@@ -24,6 +24,7 @@ import SingleProduct from "./pages/single-product";
 import BuyProduct from "./pages/product-buy";
 import AboutUs from "./pages/about-us";
 import SingleEvent from "./pages/single-event";
+import PrivacyPolicy from "./pages/privacy-policy";
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
           } />
 
           <Route path="/register" element={<Register />} />
+          <Route path="/privacy-policy" element={
+            <PrivacyPolicy />
+          } />
           
           <Route path="/webinar/register" element={<WebinarEnroll />} />
           <Route path="/webinar/payment" element={<WebinarPayment />} />

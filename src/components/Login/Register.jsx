@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../api/Auth";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import db_Service from "../../api/Database";
 
 const Register = () => {
   // state handlers
@@ -76,6 +77,12 @@ const Register = () => {
         email,
         password
       });
+
+      if (!response) return null;
+
+      else {
+        const promise = await db_Service.CreateUser()
+      }
       toast.success("Registration successful!");
       setTimeout(() => {
         navigate('/login');

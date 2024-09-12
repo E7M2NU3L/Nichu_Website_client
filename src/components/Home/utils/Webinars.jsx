@@ -181,7 +181,7 @@ const Webinars = () => {
               transition={{ duration: 0.5 }}
               className="flex-shrink-0"
             >
-              <Link to={"/webinar/12345"}>
+              <Link to={"/webinars/12345"}>
               <Card className="w-[300px] h-full">
                 <CardMedia
                   component="img"

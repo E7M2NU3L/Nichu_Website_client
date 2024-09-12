@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import ProfilePlaceholder from '../../../assets/images/profile.png';
 
 export default function Main() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -17,37 +18,37 @@ export default function Main() {
       name: "Shobana P",
       role: "UI/UX Design Intern",
       quote: "way of their teaching and explaining each topics was able understand the concepts",
-      imgSrc: ""
+      imgSrc: ProfilePlaceholder
     },
     {
       name: "Pasala Sathvika",
       role: "AIML Intern",
       quote: "Good teaching on basics and hands-on training . Very informative and interesting project ideas.  ",
-      imgSrc: ""
+      imgSrc: ProfilePlaceholder
     },
     {
       name: "Premachand",
       role: "AIML Intern",
       quote: "Very detailed and excellent course for people who wants to know more bout ai and ml ",
-      imgSrc: ""
+      imgSrc: ProfilePlaceholder
     },
     {
       name: "Vijay Prasanth ",
       role: "AIML Intern",
       quote: "Very good teaching and I like the way sir is teaching both technically and practically and some sessions by sriram sir was very motivable and I have a lots of fun.",
-      imgSrc: ""
+      imgSrc: ProfilePlaceholder
     },
     {
       name: "Tejeswar S",
       role: "UI/UX Design Intern",
       quote: "The explanation of every tools of Figma was explained clearly ",
-      imgSrc: ""
+      imgSrc: ProfilePlaceholder
     },
     {
       name: "Akshaya R",
       role: "AIML Interns",
       quote: " Supportive mentor and good way of teaching",
-      imgSrc: ""
+      imgSrc: ProfilePlaceholder
     }
   ];
 

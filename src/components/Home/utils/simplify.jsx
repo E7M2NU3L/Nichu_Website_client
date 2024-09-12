@@ -79,33 +79,6 @@ const Simplify = () => {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 sm:py-24 md:py-32 lg:py-40 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Get Started</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Unlock Your Potential with nipixTech
-                </h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Explore our wide range of courses and webinars to develop new skills and advance your career.
-                </p>
-              </div>
-              <div className="flex gap-4 flex-wrap">
-              <Button variant='contained'>
-                 <Link to={"/courses"}>
-                    Explore Courses
-                  </Link>
-                 </Button>
-                  <Button color='success' variant='outlined'>
-                  <Link to={"/webinars"}>
-                    Join Webinars
-                  </Link>
-                  </Button>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
   )
 }
@@ -152,26 +125,6 @@ function AccessibilityIcon(props) {
       >
         <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
         <circle cx="12" cy="8" r="6" />
-      </svg>
-    )
-  }
-  
-  
-  function BookIcon(props) {
-    return (
-      <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
       </svg>
     )
   }
