@@ -25,11 +25,11 @@ const WebinarContent = [{
 const WebinarCard = () => {
     return (
         <main className="w-full min-h-[90vh] overflow-y-auto">
-            <Typography className="text-3xl font-bold text-black ps-[2rem] py-[3rem]">
+            <Typography className="text-3xl font-bold text-black ps-[2rem] py-[1rem]">
                 Your <span className="text-blue-500 font-extrabold">Webinars</span>
             </Typography>
 
-            <main className="flex flex-wrap justify-center items-center gap-x-[1rem] w-full ps-[2rem]">
+            <main className="flex flex-wrap gap-x-[1rem] w-full ps-[2rem]">
                 {WebinarContent.map((content) => (
                     <Card className="mt-6 w-[20rem] bg-gray-100 shadow-lg shadow-gray-500" key={content.id}>
                         <CardBody>

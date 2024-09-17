@@ -13,12 +13,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authStatus } from '../../../features/authSlice';
 import { SiAboutdotme } from 'react-icons/si';
+import LogoutModal from './LogoutModal';
 
 
 export default function DrawerRight() {
   const [open, setOpen] = React.useState(false);
 
   const authInfo = useSelector(authStatus);
+  console.log(authInfo);
   const isLoggedin = authInfo.isLoggedin;
 
   const toggleDrawer = (open) => (event) => {
@@ -65,12 +67,11 @@ export default function DrawerRight() {
         links: AdminLinks[index]
     }));
 
-    const LoggedinLinks = ['/profile', 'cart', 'logout'];
-    const loggedintext = ['Console', 'Cart', 'Logout'];
+    const LoggedinLinks = ['/profile', 'cart'];
+    const loggedintext = ['Console', 'Cart'];
     const loggedinIcons = [
         <Person2Sharp />,
-        <Shop2 />,
-        <LogoutRounded />
+        <Shop2 />
     ];
 
     const loggedinAdminOfObjects = loggedintext.map((label, index) => ({
@@ -119,6 +120,8 @@ export default function DrawerRight() {
                         </ListItem>
                     </Link>
                     ))}
+
+                    <LogoutModal />
                 </List>
             </>
         ) : (

@@ -1,4 +1,4 @@
-import { Client, Account, Databases} from 'appwrite';
+import { Client, Account, Databases, Avatars} from 'appwrite';
 import { configURL } from './configURL';
 
 export const client = new Client();
@@ -9,3 +9,4 @@ client
 
 export const account = new Account(client);
 export const databases = new Databases(client);
+export const avatars = new Avatars(client);

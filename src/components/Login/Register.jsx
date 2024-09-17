@@ -9,6 +9,7 @@ import authService from "../../api/Auth";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import db_Service from "../../api/Database";
+import { CreateUser } from "../../api/db/users";
 
 const Register = () => {
   // state handlers
@@ -78,15 +79,20 @@ const Register = () => {
         password
       });
 
+      console.log("Returned response", response);
+
       if (!response) return null;
 
+      const promise = await CreateUser({username, email, password, userId : response});
+
+      if (!promise) return null;
+
       else {
-        const promise = await db_Service.CreateUser()
+          toast.success("Registration successful!");
+          setTimeout(() => {
+            navigate('/login');
+          }, 3000);
       }
-      toast.success("Registration successful!");
-      setTimeout(() => {
-        navigate('/login');
-      }, 3000);
     } catch (error) {
       toast.error(error.message);
       setClicked(false);

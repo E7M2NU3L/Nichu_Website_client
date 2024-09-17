@@ -22,6 +22,7 @@ const authSlice = createSlice({
       state.userData = action.payload.userData;
     },
     logout: (state) => {
+      // Reset state directly in logout action
       state.isLoggedin = false;
       state.loading = false;
       state.userData = null;

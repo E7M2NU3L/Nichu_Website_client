@@ -46,14 +46,8 @@ class Authentication{
                 username
             )
 
-            console.log(response);
-            if (response) {
-                console.log("Login Response: "+response);
-                return response;   
-            }
-            else {
-                return false;
-            }
+            console.log(response.$id);
+            return response.$id;
         } catch (error) {
             console.log(error.message);
         }

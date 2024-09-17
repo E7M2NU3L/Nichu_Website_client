@@ -6,8 +6,8 @@ import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import authService from '../../../api/Auth';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../../features/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { authStatus, logout } from '../../../features/authSlice';
 
 const style = {
   position: 'absolute',
@@ -30,23 +30,27 @@ export default function LogoutModal() {
 
   const handleLogout = async (e) => {
     e.preventDefault();
-
+  
     try {
-      // response data
-        await authService.Logout();
-        dispatch(logout())
-        console.log("The Logout has been successfull");
-        navigate('/')
-        handleClose();
+      // Call the logout service
+      await authService.Logout();
+      // Dispatch the logout action without payload
+      dispatch(logout());
+      console.log("The Logout has been successful");
+      navigate('/');
+      handleClose();
     } catch (error) {
       console.log(error.message);
       handleClose();
     }
-  }
+  };
+
+  const authInfo = useSelector(authStatus);
+  console.log(authInfo);
 
   return (
     <div>
-        <button className='text-md text-white bg-blue-500 px-4 py-2 rounded-lg shadow-md font-semibold hover:translate-x-1 hover:bg-dark-4 hover:scale-105 transition-all duration-300 ease-in-out' onClick={handleOpen}>
+        <button className='text-md text-white bg-red-500 px-4 py-2 rounded-lg w-full md:m-0 shadow-md font-semibold hover:translate-x-1 hover:bg-dark-4 hover:scale-105 transition-all duration-300 ease-in-out' onClick={handleOpen}>
             Logout
         </button> 
       <Modal

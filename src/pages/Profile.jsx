@@ -24,10 +24,10 @@ const Profile = () => {
     return (
         <section>
             <div className='min-h-[90vh] flex'>
-                <Sidebar />
-                <React.Fragment>
+                <div className='w-[8%] md:w-[15%] h-full'><Sidebar /></div>
+                <div className='w-[92%] md:w-[85%] h-full'>
                     {ConditionalRender()}
-                </React.Fragment>
+                </div>
             </div>
         </section>
     );

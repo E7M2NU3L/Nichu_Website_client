@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './main.css'
 import Logo from '../../assets/images/Logo.png'
 import { Link } from 'react-router-dom'
@@ -7,11 +7,44 @@ import LogoutModal from './utils/LogoutModal'
 import { Shop2 } from '@mui/icons-material'
 import { useSelector } from 'react-redux'
 import { authStatus } from '../../features/authSlice'
+import { databases } from '../../config/AppWrite'
+import { Query } from 'appwrite'
+import { useQuery } from '@tanstack/react-query'
+import { toast } from 'react-toastify'
 
 const Navbar = () => {
 
   const authInfo = useSelector(authStatus);
   const authentication = authInfo.isLoggedin;
+
+  const fetchUserData = async (email) => {
+    try {
+      const userData = await databases.listDocuments(
+        "65ec182e15ec8ffdec9d", "65ec184a65550085f404",
+        [
+          Query.equal('email', [email])
+        ]
+      );
+
+      console.log(userData.documents);
+
+      return userData.documents;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
+  const {isError : isFailedToFetch, data : userData, isPending : isFetchingUserData} = useQuery({
+    queryFn : (email) => fetchUserData(email),
+  });
+
+  console.log(userData);
+
+  useEffect(() => {
+    if (isFailedToFetch) {
+      toast.error("Failed to Fetch Profile URI");
+    }
+  }, [isFailedToFetch]);
 
   return (
     <div className='flex justify-between items-center w-full min-h-[10vh] bg-dark-1 px-4'>
@@ -68,7 +101,15 @@ const Navbar = () => {
               </Link>
               <h1 className='text-md text-dark-4 font-bold hover:text-dark-4 hover:translate-x-1 hover:scale-105 transition-all duration-300 ease-in-out'>
                 <Link to="/profile">
-                  profile
+                  {isFetchingUserData ? (
+                    <>
+                      <img src='fetchedImage' alt='' className='h-12 w-12 rounded-full shadow-lg border border-blue-500' />
+                    </>
+                  ) : (
+                    <>
+                      <img src='' alt='fetchingImage' className='h-12 w-12 rounded-full shadow-lg border border-blue-500' />
+                    </>
+                  )}
                 </Link>
               </h1>
               <LogoutModal />

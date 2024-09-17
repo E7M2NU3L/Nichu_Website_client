@@ -1,72 +1,65 @@
 import React from 'react';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { Computer, Person, Search } from '@mui/icons-material';
+import { Computer, Person, Search } from '@mui/icons-material'; // You can use Heroicons if you want to remove MUI icons too.
 import { useSnapshot } from 'valtio';
 import ProfileProxy from '../../proxy/ProfileProxy';
-import { List } from '@material-tailwind/react';
 
 const Sidebar = () => {
-    const ActiveLink = "flex gap-y-[0.5rem] py-[1rem] font-semibold hover:font-bold text-black transition-all duration-300 ease-in-out";
-    const InactiveLink = "flex gap-y-[0.5rem] text-black font-normal py-[0.8rem]";
+    const ActiveLink = "flex items-center gap-2 py-3 px-4 font-semibold text-black w-full bg-gray-300 rounded-md hover:bg-gray-400 transition-all duration-300 ease-in-out";
+    const InactiveLink = "flex items-center gap-2 py-3 px-4 font-normal text-gray-600 w-full rounded-md hover:bg-gray-200 transition-all duration-300 ease-in-out";
 
     const snapshot = useSnapshot(ProfileProxy);
-    console.log(snapshot);
 
     const handleProfile = () => {
         ProfileProxy.profile = true;
         ProfileProxy.Webinars = false;
         ProfileProxy.Courses = false;
-    }
+    };
 
     const handleWebinars = () => {
         ProfileProxy.profile = false;
         ProfileProxy.Webinars = true;
         ProfileProxy.Courses = false;
-    }
+    };
 
     const handleCourses = () => {
         ProfileProxy.profile = false;
         ProfileProxy.Webinars = false;
         ProfileProxy.Courses = true;
-    }
+    };
 
     return (
-        <div className='relative sm:min-w-[300px] w-[10%] bg-gray-200 min-h-[90vh]'>
-            <List>
-                <ListItem disablePadding>
-                    <button className={snapshot.profile ? ActiveLink : InactiveLink} onClick={handleProfile}>
-                        <ListItemIcon>
-                            <Person />
-                        </ListItemIcon>
-                        <ListItemText primary="Profile" className='text-dark-1 font-semibold hidden sm:block' />
+        <div className='relative w-full bg-gray-100 min-h-[90vh] p-4 shadow-lg'>
+            <ul className='space-y-2'>
+                <li>
+                    <button 
+                        className={snapshot.profile ? ActiveLink : InactiveLink} 
+                        onClick={handleProfile}
+                    >
+                        <Person className='text-xl' />
+                        <span className='hidden sm:inline'>Profile</span>
                     </button>
-                </ListItem>
-                <Divider className='hidden sm:block' />
-                <ListItem disablePadding>
-                    <button className={snapshot.Courses ? ActiveLink : InactiveLink} onClick={handleCourses}>
-                        <ListItemIcon>
-                            <Computer />
-                        </ListItemIcon>
-                        <ListItemText primary="Courses" className='text-dark-1 font-semibold hidden sm:block' />
+                </li>
+                <li>
+                    <button 
+                        className={snapshot.Courses ? ActiveLink : InactiveLink} 
+                        onClick={handleCourses}
+                    >
+                        <Computer className='text-xl' />
+                        <span className='hidden sm:inline'>Courses</span>
                     </button>
-                </ListItem>
-                <Divider className='hidden sm:block'/>
-                <ListItem disablePadding>
-                    <button className={snapshot.Webinars ? ActiveLink : InactiveLink} onClick={handleWebinars}>
-                        <ListItemIcon>
-                            <Search />
-                        </ListItemIcon>
-                        <ListItemText primary="Webinar" className='text-dark-1 font-semibold hidden sm:block' />
+                </li>
+                <li>
+                    <button 
+                        className={snapshot.Webinars ? ActiveLink : InactiveLink} 
+                        onClick={handleWebinars}
+                    >
+                        <Search className='text-xl' />
+                        <span className='hidden sm:inline'>Webinars</span>
                     </button>
-                </ListItem>
-                <Divider className='hidden sm:block'/>
-            </List>
+                </li>
+            </ul>
         </div>
     );
-}
+};
 
 export default Sidebar;

@@ -1,16 +1,14 @@
 import React from 'react';
 import {
     Card,
-    Input,
-    Checkbox,
     Typography,
     Select,
     Option,
-  } from "@material-tailwind/react";
-  import { BuildOutlined, ChildCare, Functions, Person } from "@mui/icons-material";
+} from "@material-tailwind/react";
+import { BuildOutlined, ChildCare, Functions, Person } from "@mui/icons-material";
 import { Divider } from '@mui/material';
 
-
+// ProfessionStates array
 const ProfessionStates = [
     {
         value: "Student",
@@ -30,104 +28,98 @@ const ProfessionStates = [
     }
 ]
 
-const ProfileEdit = () => {
+const ProfileDisplay = () => {
+    // Placeholder profile data
+    const profile = {
+        firstName: 'John',
+        lastName: 'Doe',
+        Description: 'A passionate teacher with years of experience in education.',
+        Phone: '+1234567890',
+        Qual: 'M.Ed. in Education',
+        profession: 'Teacher'
+    };
 
-    // handle the inputs
-    const [firstName, setfirstName] = React.useState('');
-    const [lastName, setLastname] = React.useState('');
-    const [Description, setDescription] = React.useState('');
-    const [Phone, setPhone] = React.useState('');
-    const [Qual, setQual] = React.useState('');
-    const [profession, setProfession] = React.useState('');
+    // Find label for profession
+    const professionLabel = ProfessionStates.find(prof => prof.value === profile.profession)?.label;
 
-    const handleDescription = (e) => setDescription(e.target.value);
-    const handleLastname = (e) => setLastname(e.target.value);
-    const handlefirstName = (e) => setfirstName(e.target.value);
-    const handlePhone = (e) => setPhone(e.target.value);
-    const handleQual = (e) => setQual(e.target.value);
-    const handleProfession = (e) => setProfession(e);
-    
-    // submitting to the backend
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        try {
-            console.log(
-                firstName,
-                lastName,
-                Description,
-                Phone,
-                Qual,
-                profession
-            );
-        } catch (error) {
-            console.log("Error Occured: "+ error.message);
-        }
-    }
-
-  return (
-    <div className='flex justify-center items-center w-full' style={{
-        minHeight: "90vh", height: "100%", paddingTop: "4rem", paddingBottom: "4rem"
-    }}>
-        <Card color="transparent" className='bg-gray-300 shadow-lg shadow-gray-400 px-[2rem] py-[1.5rem]' shadow={false}>
-            <Typography variant="h4" color="blue-gray">
-              Update Profile
-            </Typography>
-            
-            <Divider />
-
-            <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={handleSubmit}>
+    return (
+        <div className='flex justify-center items-center w-full px-4' style={{
+            minHeight: "90vh", height: "100%", paddingTop: "2rem", paddingBottom: "2rem"
+        }}>
+            <Card color="transparent" className='w-full max-w-md bg-gray-200 shadow-lg shadow-gray-400 p-6'>
+                <Typography variant="h4" color="blue-gray" className="text-center mb-4">
+                    Profile Information
+                </Typography>
                 
-                <div className="mb-1 flex flex-col gap-6">
-                <Input required={true} label="First Name" size="lg" value={firstName} onChange={handlefirstName}/>
-                <Input required={true} label="Last Name" size="lg" value={lastName} onChange={handleLastname}/>
-                <Input required={true} label="Bio" size="lg" value={Description} onChange={handleDescription}/>
-                <Input required={true} label="Qualification" size="lg" value={Qual} onChange={handleQual} />
-                    <Typography variant='small' color='blue-gray' className='mt-2 font-normal'>
-                        I am a
-                    <Select
-                            placeholder="Student"
-                            className=" focus:!border-t-gray-900"
-                            labelProps={{
-                            className: "before:content-none after:content-none",
-                            }}
-                            menuProps={{ className: "h-48" }}
-                            value={profession}
-                            onChange={handleProfession}
-                            >
-                            {ProfessionStates.map((content) => (
-                            <Option key={content.value} value={content.value}>
-                                <div className="flex items-center gap-x-2">
-                                    {content.label}
-                                    {content.value}
-                                </div>
-                            </Option>
-                            ))}
-                </Select>
-                    </Typography>
+                <Divider />
+
+                <div className="mt-6 space-y-4">
+                    {/* First Name */}
+                    <div className="flex justify-between">
+                        <Typography variant="h6" color="blue-gray">
+                            First Name:
+                        </Typography>
+                        <Typography variant="body1" color="gray">
+                            {profile.firstName}
+                        </Typography>
+                    </div>
+
+                    {/* Last Name */}
+                    <div className="flex justify-between">
+                        <Typography variant="h6" color="blue-gray">
+                            Last Name:
+                        </Typography>
+                        <Typography variant="body1" color="gray">
+                            {profile.lastName}
+                        </Typography>
+                    </div>
+
+                    {/* Bio */}
+                    <div className="flex justify-between">
+                        <Typography variant="h6" color="blue-gray">
+                            Bio:
+                        </Typography>
+                        <Typography variant="body1" color="gray">
+                            {profile.Description}
+                        </Typography>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="flex justify-between">
+                        <Typography variant="h6" color="blue-gray">
+                            Phone:
+                        </Typography>
+                        <Typography variant="body1" color="gray">
+                            {profile.Phone}
+                        </Typography>
+                    </div>
+
+                    {/* Qualification */}
+                    <div className="flex justify-between">
+                        <Typography variant="h6" color="blue-gray">
+                            Qualification:
+                        </Typography>
+                        <Typography variant="body1" color="gray">
+                            {profile.Qual}
+                        </Typography>
+                    </div>
+
+                    {/* Profession */}
+                    <div className="flex justify-between">
+                        <Typography variant="h6" color="blue-gray">
+                            Profession:
+                        </Typography>
+                        <div className="flex items-center gap-2">
+                            {professionLabel}
+                            <Typography variant="body1" color="gray">
+                                {profile.profession}
+                            </Typography>
+                        </div>
+                    </div>
                 </div>
-                <Checkbox
-                    label={
-                    <Typography
-                        variant="small"
-                        color="gray"
-                        className="flex items-center font-normal"
-                    >
-                        I agree the Terms and Conditions
-                    </Typography>
-                    }
-                    containerProps={{ className: "-ml-2.5" }}
-                /> 
-
-                <Divider className='opacity-0' />
-
-                <button className='block bg-blue-500 shadow-md px-4 py-2 rounded-md ps-[1.4rem] text-white font-semibold hover:translate-x-2 hover:bg-green-400 transition-all duration-200 ease-in-out'>
-                    Update
-                </button>
-            </form>
-        </Card>
-    </div>
-  )
+            </Card>
+        </div>
+    );
 }
 
-export default ProfileEdit;
+export default ProfileDisplay;
